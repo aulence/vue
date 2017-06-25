@@ -8,7 +8,10 @@ let app1 = new Vue({
 	el: '#app-1',
 	components: {
 		'comp-item': {
-			template: '<p>#app-1：我是自定义组件</p>'
+			template: '<div>' +
+				'<p>我是自定义组件</p>' +
+				'<p>在这里可以写<em id="htmlColor" style="color:#f18c1d">HTML</em>代码</p>' +
+			'</div>'
 		}
 	}
 });

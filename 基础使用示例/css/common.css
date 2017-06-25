@@ -41,14 +41,24 @@ button.btn:focus, button.btn:active {
 .mr-100 {
     margin-right: 100px;
 }
+.mt-50 {
+    margin-top: 50px;
+}
 /* 宽度 */
 .w-164 {
     width: 164px;
 }
+/* 无效果列表 */
+.list-none {
+    list-style: none;
+    color: #666666;
+}
+/* bootstrap表单控件重定义 */
 input.form-control, select.form-control {
     height: auto;
     font-size: 20px;
 }
+/* 手型效果 */
 .pointer {
     cursor: pointer;
 }

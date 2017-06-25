@@ -54,7 +54,7 @@ let vm = new Vue({
 		},
 		// 修改角色
 		editRole: function () {
-			alert(this.roleInfo[0].id);
+			//alert(this.roleInfo[0].id);
 		}
 	}
 });

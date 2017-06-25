@@ -57,16 +57,48 @@
 				<p>{{state === '正确' ? '开启状态' : '关闭状态'}}</p>
 				<p>{{state != '正确' ? '开启状态' : '关闭状态'}}</p>
 				<p>{{skillArr[2]}}</p>
+				<p>{{fn(7,8)}}</p>
 				<p v-html="(total - 200) + obj.quantifier + obj.personName"></p>
 			</section>
 
 			<section id="app-6">
 				<h2 class="section_h2">#app-6</h2>
 				<p>
-					<input type="radio" v-model="gender" value="男">
-					<input type="radio" v-model="gender" value="女">
-					<input type="radio" v-model="gender" value="保密">
+					<label>
+						男
+						<input name="gender" type="radio" v-model="gender" value="男">
+					</label>
+					<label>
+						女
+						<input name="gender" type="radio" v-model="gender" value="女">
+					</label>
+					<label>
+						保密
+						<input name="gender" type="radio" v-model="gender" value="保密">
+					</label>
 					<!--<input type="radio" name="gender" v-bind:checked="gender">-->
+				</p>
+			</section>
+
+			<section id="app-7">
+				<h2 class="section_h2">#app-7</h2>
+				<p>
+					<label>
+						游戏
+						<input name="hoby" type="checkbox" v-model="hoby" value="游戏">
+					</label>
+					<label>
+						旅游
+						<input name="hoby" type="checkbox" v-model="hoby" value="旅游">
+					</label>
+					<label>
+						电影
+						<input name="hoby" type="checkbox" v-model="hoby" value="电影">
+					</label>
+					<label>
+						美食
+						<input name="hoby" type="checkbox" v-model="hoby" value="美食">
+					</label>
 				</p>
 			</section>
 		</article>

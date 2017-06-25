@@ -35,8 +35,7 @@
 					<label>系列：</label>
 					<select v-model="newRole.series" class="form-control">
 						<template v-for="value in seriesDefined">
-							<option v-if="value==='雷'" selected v-html="value"></option>
-							<option v-else v-html="value"></option>
+							<option v-html="value"></option>
 						</template>
 					</select>
 				</div>
@@ -44,8 +43,7 @@
 					<label>擅长：</label>
 					<select v-model="newRole.strongPoint" class="form-control">
 						<template v-for="value in strongPointDefined">
-							<option v-if="value==='攻击'" selected v-html="value"></option>
-							<option v-else v-html="value"></option>
+							<option v-html="value"></option>
 						</template>
 					</select>
 				</div>
@@ -70,8 +68,8 @@
 						<td v-html="info.series"></td>
 						<td v-html="info.strongPoint"></td>
 						<td>
-							<button type="button" class="btn btn-warning" @click="editRole($index)">修改</button>
-							<button type="button" class="btn btn-danger" @click="deleteRole($index)">删除</button>
+							<button type="button" class="btn btn-warning" v-on:click="editRole($index)">修改</button>
+							<button type="button" class="btn btn-danger" v-on:click="deleteRole($index)">删除</button>
 						</td>
 					</tr>
 				</tbody>
