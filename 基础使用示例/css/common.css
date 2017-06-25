@@ -60,6 +60,8 @@ button.btn:focus, button.btn:active {
 .list-none {
     list-style: none;
     color: #666666;
+    position: relative;
+    left: -40px;
 }
 /* 字体控制 */
 .text-weight-normal, .text-weight-normal th, .text-weight-normal td {
@@ -69,6 +71,16 @@ button.btn:focus, button.btn:active {
 input.form-control, select.form-control {
     height: auto;
     font-size: 20px;
+}
+.checkbox-inline input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: -2px;
+}
+.checkbox-inline input[type="checkbox"],.checkbox-inline span {
+    vertical-align: middle;
+    display: inline-block;
 }
 /* 手型效果 */
 .pointer {

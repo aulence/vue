@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Vue组件进阶</title>
+	<link rel="shortcut icon" href="../../source/favicon.ico">
+	<link rel="bookmark" href="../../source/favicon.ico">
+	<link rel="stylesheet" href="../plugin/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/component.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class="breadcrumb">
+				<li><a href="../index.html">首页</a></li>
+				<li class="active">Vue组件进阶</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<article>
+			<h1>Vue组件进阶</h1>
+
+			<section id="app-1">
+				<h2 class="section_h2">#app-1：通过该例子来再次认识组件</h2>
+				<div>
+					<input
+						class="form-control"
+						v-model="newPoetryText"
+						@keyup.enter="addNewPoetry"
+						placeholder="添加内容后按下Enter键"
+					>
+					<ul class="mt-10">
+						<li
+							is="poetry-item"
+							v-for="(poetry, index) in poetryList"
+							:prop="poetry"
+							@remove="poetryList.splice(index, 1)"
+						></li>
+					</ul>
+				</div>
+			</section>
+
+		</article>
+	</main>
+
+	<script src="../plugin/vue.js"></script>
+	<script src="../js/component-levup.js"></script>
+</body>
+</html>
