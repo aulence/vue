@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="author" content="Auelnce,aulence@foxmail.com">
+	<title>Vue渲染方式</title>
+	<link rel="stylesheet" href="../plugin/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class="breadcrumb">
+				<li><a href="../index.html">首页</a></li>
+				<li class="active">Vue渲染方式</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<article>
+			<h1>Vue渲染方式</h1>
+
+			<section id="app-1" >
+				<h2 class="section_h2">#app-1</h2>
+				<ul>
+					<li class="list-none">列表的数组渲染方式：</li>
+					<li v-for="item in listRender_arr">{{item}}</li>
+					<li class="list-none mt-50">列表的对象渲染方式：</li>
+				</ul>
+				<table class="table table-bordered">
+					<thead class="bg-primary">
+						<tr>
+							<th>星宿</th>
+							<th>头衔</th>
+							<th>姓名</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="cell in listRender_obj">
+							<td>{{cell.star}}</td>
+							<td>{{cell.title}}</td>
+							<td>{{cell.name}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+		</article>
+	</main>
+
+	<script src="../plugin/vue.js"></script>
+	<script src="../js/rendering.js"></script>
+</body>
+</html>
