@@ -22,3 +22,11 @@ const app1 = new Vue({
 		listRender_obj: roleInfo_obj
 	}
 });
+
+const app2 = new Vue({
+	el: '#app-2',
+	data: {
+		listRender_arr: roleInfo_arr,
+		listRender_obj: roleInfo_obj
+	}
+});

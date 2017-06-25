@@ -47,6 +47,26 @@
 				</table>
 			</section>
 
+			<section id="app-2" >
+				<h2 class="section_h2">#app-2</h2>
+				<table class="table table-bordered">
+					<thead class="bg-primary">
+						<tr>
+							<th>星宿</th>
+							<th>头衔</th>
+							<th>姓名</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(cell, index) in listRender_obj">
+							<td>{{parentMessage}} - {{index}} - {{cell.star}}</td>
+							<td>{{parentMessage}} - {{index}} - {{cell.title}}</td>
+							<td>{{parentMessage}} - {{index}} - {{cell.name}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
 		</article>
 	</main>
 
