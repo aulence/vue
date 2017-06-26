@@ -26,7 +26,7 @@ const app1 = new Vue({
 	},
 	methods: {
 		addNewPoetry: function () {
-			this.poetryList.push(this.newPoetryText)
+			this.poetryList.push(this.newPoetryText);
 			this.newPoetryText = ''
 		}
 	}

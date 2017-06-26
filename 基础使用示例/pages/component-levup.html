@@ -39,6 +39,7 @@
 							v-for="(poetry, index) in poetryList"
 							:prop="poetry"
 							@remove="poetryList.splice(index, 1)"
+							:key="poetry.id"
 						></li>
 					</ul>
 				</div>
