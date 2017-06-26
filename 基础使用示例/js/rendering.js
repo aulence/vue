@@ -28,7 +28,7 @@ const app2 = new Vue({
 		indexString: 'index为：',
 		starName: '，星宿：',
 		titleName: '，头衔：',
-		nameIs: '，姓名',
+		nameIs: '，姓名：',
 		listRender_obj: roleInfo_obj
 	}
 });

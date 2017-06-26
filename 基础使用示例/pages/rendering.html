@@ -28,7 +28,7 @@
 				<h2 class="section_h2">#app-1：数组和对象的遍历方式</h2>
 				<ul>
 					<li class="list-none">列表的数组渲染方式：</li>
-					<li v-for="item in listRender_arr">{{item}}</li>
+					<li v-for="item in listRender_arr">{{ item }}</li>
 					<li class="list-none mt-50">表格的对象渲染方式：</li>
 				</ul>
 				<table class="table table-bordered">
@@ -40,10 +40,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="cell in listRender_obj">
-							<td>{{cell.star}}</td>
-							<td>{{cell.title}}</td>
-							<td>{{cell.name}}</td>
+						<tr v-for="tr in listRender_obj">
+							<td>{{ tr.star }}</td>
+							<td>{{ tr.title }}</td>
+							<td>{{ tr.name }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -60,16 +60,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="(cell, key) in listRender_obj">
-							<td>{{indexString + key + starName + cell.star}}</td>
-							<td>{{indexString + key + titleName + cell.title}}</td>
-							<td>{{indexString + key + nameIs + cell.name}}</td>
+						<tr v-for="(tr, key) in listRender_obj">
+							<td>{{indexString + key + starName + tr.star}}</td>
+							<td>{{indexString + key + titleName + tr.title}}</td>
+							<td>{{indexString + key + nameIs + tr.name}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</section>
 
-			<section id="app-3" >
+			<section id="app-3">
 				<h2 class="section_h2">#app-3：对象属性访问</h2>
 				<table class="table table-bordered">
 					<thead class="bg-theme text-weight-normal">
@@ -115,6 +115,9 @@
 				<ul>
 					<li class="list-none">您的爱好是：</li>
 					<li v-for="hobby in hobbyList" v-if="hobby.showStatus">{{hobby.name}}</li>
+					<!--<template v-if="hobby.showStatus">
+						<li v-for="hobby in hobbyList">{{hobby.name}}</li>
+					</template>-->
 				</ul>
 			</section>
 
