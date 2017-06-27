@@ -14,6 +14,9 @@
 .text-blue {
     color: #0000ff;
 }
+.fz-22 {
+    font-size: 22px;
+}
 .fz-26 {
     font-size: 26px;
 }
@@ -22,6 +25,21 @@
 }
 .text-underline {
     text-decoration: underline;
+}
+.text-success {
+    color: #22c847;
+}
+.text-fail {
+    color: #bf5253;
+}
+.text-red {
+    color: #ff0000;
+}
+.text-blue {
+    color: #0000ff;
+}
+.fs-italic {
+    font-style: italic;
 }
 .border-success {
     border: 2px solid #22d44a;
@@ -32,24 +50,6 @@
     border: 2px solid #d45859;
     border-radius: 15px;
     padding: 10px;
-}
-#app-4 .text-success {
-    color: #22c847;
-}
-#app-4 .text-fail {
-    color: #bf5253;
-}
-#app-5 .text-red {
-    color: #ff0000;
-}
-#app-5 .text-blue {
-    color: #0000ff;
-}
-#app-5 .fz-22 {
-    font-size: 22px;
-}
-#app-5 .fs-italic {
-    font-style: italic;
 }
 /* 爱好选择 */
 .hobbyList ul {

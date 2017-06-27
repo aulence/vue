@@ -57,14 +57,14 @@ let app4 = new Vue({
 		successClass: function () {
 			return {
 				'border-success': this.toggle && this.status && !this.header,
-				'text-success': this.toggle && this.status === 'ok' && this.header === null
+				'text-success': this.toggle === true && this.status === 'ok' && this.header === null
 			}
 		},
 		failClass: function (index) {
 			return {
 				'border-success': !this.toggle && !this.status  && this.header,
 				'text-success': this.toggle === false && this.status === 'fail' &&  this.header !== null,
-				'border-fail': 2 < 3 || 5 > 3,
+				'border-fail': 2 > 3 || 5 > 3,
 				'text-fail': true,
 				'mt-10': 53 + 47 === 100
 			}
@@ -82,4 +82,13 @@ let app5 = new Vue({
 		yes: true,
 		no: false
 	}
+});
+
+Vue.component('test-class', {
+	props: ['prop'],
+	template: '<p class="text-success">测试组件挂载class，及样式优先级</p>'
+});
+let app6 = new Vue({
+	el: '#app-6',
+	data: {}
 });

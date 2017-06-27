@@ -11,7 +11,7 @@ let vm = new Vue({
 		strongPointDefined: ['攻击','防御','智力','体质','敏捷'],
 		buttonName: '创建角色',
 		modifyStatus: false,
-		operateObjIndex: 0,
+		operateObjIndex: NaN,
 		newRole: {
 			id: 'DS-',
 			name: '',
