@@ -108,7 +108,7 @@ const app5 = new Vue({
 	}
 });
 
-Vue.component('child-component', {
+Vue.component('childComponent', {
 	// 第一个组件属性传递标签内容，第二传递标签属性
 	props: ['communicate','styleProp'],
 	template: '<div :style="styleProp">{{ communicate }}</div>'
