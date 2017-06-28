@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="author" content="Auelnce,aulence@foxmail.com">
+	<title>Vue路由</title>
+	<link rel="shortcut icon" href="../../source/favicon.ico">
+	<link rel="bookmark" href="../../source/favicon.ico">
+	<link rel="stylesheet" href="plugin/bootstrap.min.css">
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div id="app">
+		<h1>Hello App!</h1>
+		<p>
+			<!-- 使用 router-link 组件来导航. -->
+			<!-- 通过传入 `to` 属性指定链接. -->
+			<!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+			<router-link to="/foo">Go to Foo</router-link>
+			<router-link to="/bar">Go to Bar</router-link>
+		</p>
+		<!-- 路由出口 -->
+		<!-- 路由匹配到的组件将渲染在这里 -->
+		<router-view></router-view>
+	</div>
+
+	<script src="plugin/vue.js"></script>
+	<script src="plugin/vue-router.js"></script>
+</body>
+</html>
