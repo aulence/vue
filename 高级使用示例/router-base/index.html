@@ -18,16 +18,16 @@
 			<nav>
 				<!-- 使用 router-link 组件来导航. -->
 				<!-- 通过传入 `to` 属性指定链接. -->
-				<!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+				<!-- <router-link> 默认会被渲染成一个 `<a>` 标签，可以在vue-router.js源码里搜索到 -->
 				<router-link to="/home">网站首页</router-link>
 				<router-link to="/product">产品介绍</router-link>
 				<router-link to="/service">服务支持</router-link>
 				<router-link to="/about">联系我们</router-link>
 			</nav>
 		</header>
-		<!-- 路由出口 -->
-		<!-- 路由匹配到的组件将渲染在这里 -->
 		<div class="content">
+			<!-- 路由出口，该组件同样是在vue-router.js里定义好的 -->
+			<!-- 路由匹配到的组件将渲染在这里 -->
 			<router-view></router-view>
 		</div>
 	</main>
