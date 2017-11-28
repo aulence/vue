@@ -25,7 +25,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: '随便'
+      msg: '这是World'
     }
   }
 }

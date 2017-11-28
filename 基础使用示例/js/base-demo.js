@@ -59,6 +59,7 @@ let vm = new Vue({
 				this.roleInfo.splice(this.operateObjIndex, 1, this.newRole);
 				// 恢复按钮名称
 				this.buttonName = '创建角色';
+				this.modifyStatus = false;
 			}
 			
 			// 添加完newRole对象后，重置newRole对象

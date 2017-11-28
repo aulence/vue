@@ -160,15 +160,15 @@ const app8 = new Vue({
 });
 
 Vue.component('button-calc-add', {
-	template: `<button type="button" @click="addSelf" class="btn btn-primary">{{ num }}</button>`,
+	template: `<button type="button" @click="addSelf(1)" class="btn btn-primary">{{ num }}</button>`,
 	data: function () {
 		return {
 			num: 0
 		}
 	},
 	methods: {
-		addSelf: function () {
-			this.num += 1;
+		addSelf: function (num) {
+			this.num += num;
 			this.$emit('add-self');
 		}
 	}
