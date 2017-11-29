@@ -22,18 +22,15 @@ let app1 = new Vue({
 
 /* #app2 */
 let app2data = {
-	setName: '数据内容2'
+	setName: '数据内容2',
+	oldVal: '--暂无--'
 };
 let app2 = new Vue({
 	el: '#app-2',
 	data: app2data
 });
 app2.$watch('setName', function (newVal, oldVal) {
-	let old_val = app2.$el.getElementsByClassName('oldVal')[0],
-		new_val = app2.$el.getElementsByClassName('newVal')[0];
-	
-	old_val.textContent = oldVal;
-	new_val.textContent = newVal;
+	app2data.oldVal = oldVal;
 });
 
 /* #app3 */
