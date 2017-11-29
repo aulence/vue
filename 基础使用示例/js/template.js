@@ -70,14 +70,14 @@ let app5 = new Vue({
 let app6 = new Vue({
 	el: '#app-6',
 	data: {
-		gender: ''
+		gender: '保密'
 	}
 });
 
 let app7 = new Vue({
 	el: '#app-7',
 	data: {
-		hoby: []
+		hoby: ['电影']
 	}
 });
 

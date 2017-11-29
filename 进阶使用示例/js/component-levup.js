@@ -124,7 +124,6 @@ const app6 = new Vue({
 });
 
 Vue.component('bind-component', {
-	// 第一个组件属性传递标签内容，第二传递标签属性
 	props: ['parentMessage'],
 	template: '<div>{{ parentMessage }}</div>',
 });
@@ -141,7 +140,6 @@ const app7 = new Vue({
 });
 
 Vue.component('check-component', {
-	// 第一个组件属性传递标签内容，第二传递标签属性
 	props: {
 		propString: String
 	},

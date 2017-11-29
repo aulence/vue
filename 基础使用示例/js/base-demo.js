@@ -15,8 +15,8 @@ let vm = new Vue({
 		newRole: {
 			id: 'DS-',
 			name: '',
-			series: '',
-			strongPoint: ''
+			series: '雷',
+			strongPoint: '攻击'
 		},
 		roleInfo: [
 			{
@@ -66,8 +66,8 @@ let vm = new Vue({
 			this.newRole = {
 				id: 'DS-',
 				name: '',
-				series: '',
-				strongPoint: ''
+				series: '雷',
+				strongPoint: '攻击'
 			}
 		},
 		// 删除角色

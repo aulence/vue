@@ -48,7 +48,6 @@ let app2 = new Vue({
 let app3 = new Vue({
 	el: '#app-3',
 	data: {
-		//nowtime: '上午9:00'
 		nowtime: new Date().toLocaleString()
 	},
 	methods: {
