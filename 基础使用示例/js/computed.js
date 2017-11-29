@@ -130,6 +130,7 @@ let app7 = new Vue({
 		// “_.debounce”是一个通过lodash（函数插件）限制操作频率的函数
 		// 在这个例子中，我们希望限制访问“yesno.wtf/api”这个地址JSON的频率
 		// axios（Vue使用的ajax请求插件）请求直到用户输入完毕才会发出
+		// _.debounce()方法是lodash.js这个库提供的一个延时函数，利用这个函数可以等待用操作完成后延时执行内容，从而减轻AJAX请求对服务器的负担
 		getAnswer: _.debounce(
 			function () {
 				let qa = this;
