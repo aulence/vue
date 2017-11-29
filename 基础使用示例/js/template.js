@@ -50,6 +50,7 @@ btn2.onclick = function () {
 btn3.onclick = function () {
 	app4.state = true;
 };
+
 let app5 = new Vue({
 	el: '#app-5',
 	data: {
