@@ -123,12 +123,15 @@ input.form-control, select.form-control {
 }
 /* 说明性注释 */
 tips.comment {
-    padding: 10px;
-    background-color: #f1f6fd;
+    padding: 20px 10px;
+    background-color: #f4f6fa;
+    border: 1px solid #ddd;
     border-left: 4px solid #ddd;
     white-space: pre-wrap;
     font-weight: lighter;
+    line-height: 1.5;
     color: #666;
+    margin: 10px 24px;
     display: block;
 }
 tips.comment::before {
