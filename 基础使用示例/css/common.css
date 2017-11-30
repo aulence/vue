@@ -128,11 +128,11 @@ p.comment {
     border-left: 4px solid #ddd;
     white-space: pre-wrap;
     font-weight: lighter;
-    color: #888888;
+    color: #666;
 }
 p.comment::before {
     content: '<tips>';
-    color: #aaa;
+    color: #888;
     font: italic normal 20px sans-serif;
     margin-right: 8px;
 }
