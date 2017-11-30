@@ -30,7 +30,7 @@ let app2 = new Vue({
 	},
 	computed: {
 		getNowTime: function () {
-			return this.content = new Date().toLocaleString();
+			return new Date().toLocaleString();
 		}
 	},
 	methods: {
@@ -131,8 +131,7 @@ let app7 = new Vue({
 		// 在这个例子中，我们希望限制访问“yesno.wtf/api”这个地址JSON的频率
 		// axios（Vue使用的ajax请求插件）请求直到用户输入完毕才会发出
 		// _.debounce()方法是lodash.js这个库提供的一个延时函数，利用这个函数可以等待用操作完成后延时执行内容，从而减轻AJAX请求对服务器的负担
-		getAnswer: _.debounce(
-			function () {
+		getAnswer: _.debounce(function () {
 				let qa = this;
 				if (this.question.indexOf('?') === -1 && this.question.indexOf('？') === -1 ) {
 					qa.answer = '输入的问题必须要包含“？”的哟';
@@ -148,8 +147,7 @@ let app7 = new Vue({
 						qa.answer = '错误！无法访问API。' + error;
 					});
 			},
-			// 输入停止后多少毫秒执行函数
-			500
-		)
+		// 输入停止后多少毫秒执行函数
+		500)
 	}
 })

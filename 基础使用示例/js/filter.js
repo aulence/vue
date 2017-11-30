@@ -29,7 +29,7 @@ window.onload = function () {
 				goods: '海尔智能王冰箱',
 				country: '中国',
 				price: 4999,
-				dete: '2017-4-19'
+				date: '2017-4-19'
 			}
 		}
 	});
