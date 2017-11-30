@@ -58,7 +58,13 @@
 			</section>
 
 			<section id="app-5">
-				<h2 class="section_h2">#app-5：通过数组设置class</h2>
+				<h2 class="section_h2">#app-5：通过点击事件切换状态</h2>
+				<div :class="setFont" v-if="operate" @click="changeState">{{danger}}</div>
+				<div :class="setFont" v-else @click="changeState">{{security}}</div>
+			 </section>
+
+			<section id="app-6">
+				<h2 class="section_h2">#app-6：通过数组设置class</h2>
 				<div :class="[red,fz,fs]">样式组合一</div>
 				<div :class="[fz,fs]">样式组合二</div>
 				<div :class="[red]">样式组合三</div>
@@ -72,8 +78,8 @@
 				<div :class="[{'text-blue': no}, fs]">使用蓝色的斜体字体（只执行斜体）</div>
 			</section>
 
-			<section id="app-6">
-				<h2 class="section_h2">#app-6：在组件上设置class</h2>
+			<section id="app-7">
+				<h2 class="section_h2">#app-7：在组件上设置class</h2>
 				<test-class class="text-underline" :prop="prop1"></test-class>
 				<test-class class="fs-italic" :prop="prop2"></test-class>
 				<test-class class="text-fail" :prop="prop3"></test-class>

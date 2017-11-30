@@ -4,7 +4,7 @@
  **/
 Vue.config.silent = true;
 
-let app1 = new Vue({
+const app1 = new Vue({
 	el: '#app-1',
 	data: {
 		statusTrue: true,
@@ -12,7 +12,7 @@ let app1 = new Vue({
 	}
 });
 
-let app2 = new Vue({
+const app2 = new Vue({
 	el: '#app-2',
 	data: {
 		styleObject: {
@@ -23,7 +23,7 @@ let app2 = new Vue({
 	}
 });
 
-let app3 = new Vue({
+const app3 = new Vue({
 	el: '#app-3',
 	data: {
 		hobbyList: [
@@ -42,7 +42,7 @@ let app3 = new Vue({
 	}
 });
 
-let app4 = new Vue({
+const app4 = new Vue({
 	el: '#app-4',
 	data: {
 		stateText: {
@@ -72,8 +72,30 @@ let app4 = new Vue({
 	}
 });
 
-let app5 = new Vue({
+const app5 = new Vue({
 	el: '#app-5',
+    data: {
+        danger: '危险的操作',
+        security: '安全的操作',
+        operate: true,
+        setFont: {
+            setRed: true,
+            setGreen: false,
+            setFamily: true,
+            setSize: true
+        }
+    },
+    methods: {
+        changeState() {
+            this.operate = !this.operate;
+            this.setFont.setRed = !this.setFont.setRed;
+            this.setFont.setGreen = !this.setFont.setGreen;
+        }
+    }
+});
+
+const app6 = new Vue({
+	el: '#app-6',
 	data: {
 		red: 'text-red',
 		blue: 'text-blue',
@@ -88,7 +110,7 @@ Vue.component('test-class', {
 	props: ['prop'],
 	template: '<p class="text-success">测试组件挂载class，及样式优先级</p>'
 });
-let app6 = new Vue({
-	el: '#app-6',
+const app7 = new Vue({
+	el: '#app-7',
 	data: {}
 });

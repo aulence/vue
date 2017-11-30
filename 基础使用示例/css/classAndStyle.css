@@ -76,3 +76,27 @@
     text-decoration: none;
     color: #ffffff;
 }
+
+/* 点击切换状态 */
+#app-5 div {
+    width: 248px;
+    padding: 6px;
+    border: 1px solid;
+    background-color: #f3f3f3;
+    cursor: pointer;
+    user-select: none;
+}
+#app-5 .setRed {
+    border-color: #d81818;
+    color: #d81818;
+}
+#app-5 .setGreen {
+    border-color: #10dd66;
+    color: #10dd66;
+}
+#app-5 .setFamily {
+    font-family: "华文行楷";
+}
+#app-5 .setSize {
+    font-size: 46px;
+}
