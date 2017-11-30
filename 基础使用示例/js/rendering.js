@@ -60,14 +60,19 @@ const app4 = new Vue({
 const app5 = new Vue({
 	el: '#app-5',
 	data: {
-		hobbyList: [
-			{ name: '编程', showStatus: true },
-			{ name: '游戏', showStatus: false },
-			{ name: '看书', showStatus: true },
-			{ name: '美食', showStatus: false },
-			{ name: '运动', showStatus:  true },
-			{ name: '电影', showStatus: false },
+		hobbys: [
+			{ name: '编程', show: true },
+			{ name: '游戏', show: false },
+			{ name: '看书', show: true },
+			{ name: '美食', show: false },
+			{ name: '运动', show:  true },
+			{ name: '电影', show: false },
 		]
+	},
+	methods: {
+		showInfo(index) {
+			alert("您点击的是：" + this.hobbys[index].name);
+		}
 	}
 });
 

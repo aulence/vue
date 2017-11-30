@@ -67,6 +67,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<tips class="comment">该示例主要体现了“v-for”指令内“key”属性所表示的值的含义，以及体现了该指令内的属性和数据模型上的属性的同本质关系，即他们在模版引擎内表现一致的特点。而“v-for”里面的“tr”属性和我们之前接触的“别名”（alias）一致，它仍然表示所遍历对象的别名。</tips>
 			</section>
 
 			<section id="app-3">
@@ -87,6 +88,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<tips class="comment">和原生的JavaScript不同，Vue为数组也提供了索引下标值，而这段代码里的“index”指的就是对象的索引值，而“key”是对象的键名，而“value”是对象的键值，需要牢记这三个值的顺序。这三个值的命名均可以自定义，但也应当遵从语义化的规范。</tips>
 			</section>
 
 			<section id="app-4" >
@@ -102,23 +104,26 @@
 					<dt>{{food.type}}</dt>
 					<dd>{{food.name}}</dd>
 				</dl>
+				<tips class="comment">在程序运行之后，“template”标签并不会被渲染到页面上。这两种语法结构并没有功能上的差异，可以将“v-if”、“v-show”、“v-for”等指令抽取出来放在template上面，把绑定的事件放在temlpate里面的元，这样做可以使HTML文档结构更加清晰，还可以改善一个标签名+多个属性后标签过长的情况</tips>
 			</section>
 
 			<section id="app-5" style="height: 332px;">
 				<h2 class="section_h2">#app-5：动态条件渲染</h2>
 				<form class="form-group">
-					<label class="checkbox-inline" v-for="checkbox in hobbyList">
-						<input name="hobby" type="checkbox" :value="checkbox.name" v-model="checkbox.showStatus" :checked="checkbox.showStatus">
+					<label class="checkbox-inline" v-for="checkbox in hobbys">
+						<input name="hobby" type="checkbox" :value="checkbox.name" v-model="checkbox.show" :checked="checkbox.show">
 						<span>{{checkbox.name}}</span>
 					</label>
 				</form>
 				<ul>
 					<li class="list-none">您的爱好是：</li>
-					<li v-for="hobby in hobbyList" v-if="hobby.showStatus">{{hobby.name}}</li>
-					<!--<template v-if="hobby.showStatus">
-						<li v-for="hobby in hobbyList">{{hobby.name}}</li>
-					</template>-->
+					<template v-if="hobby.show" v-for="(hobby,index) in hobbys">
+						<li @click="showInfo(index)">{{hobby.name}}</li>
+					</template>
+					<!--  这样的写法和上面的写法是等效的，但是标签组成过长，使得可读性变得比较差  -->
+					<!--<li v-for="(hobby,index) in hobbys" v-if="hobby.show"  @click="showInfo(index)">{{hobby.name}}</li>-->
 				</ul>
+				<tips class="comment">请在对应的HTML部分查看HTML注释内容</tips>
 			</section>
 
 			<section id="app-6">
@@ -142,6 +147,7 @@
 				<div class="album" v-else>
 					<img :style="imgStyle" v-for="url in albums.girl" :src="url"/>
 				</div>
+				<tips class="comment">该示例实现的几个关键：摆脱DOM操作的思想束缚、运用数据驱动模式思维、“v-if”、““v-else-if”和“v-else”的理解和使用、表单中“v-model”和“:value”的关系、“v-for”的使用。如果对这几点都已经理解得比较好，该示例就比较容易看懂了。</tips>
 			</section>
 
 		</article>
