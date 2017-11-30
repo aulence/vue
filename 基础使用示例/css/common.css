@@ -131,7 +131,7 @@ tips.comment {
     font-weight: lighter;
     line-height: 1.5;
     color: #666;
-    margin: 10px 24px;
+    margin: 16px 0;
     display: block;
 }
 tips.comment::before {
