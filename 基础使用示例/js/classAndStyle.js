@@ -37,6 +37,7 @@ const app3 = new Vue({
 	},
 	methods: {
 		toggleClass: function (index) {
+			// 通过这样的方式来实现状态的切换（true/false）是比较常用的最简单方式
 			this.hobbyList[index].activeStatus = !this.hobbyList[index].activeStatus;
 		}
 	}
