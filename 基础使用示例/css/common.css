@@ -122,15 +122,16 @@ input.form-control, select.form-control {
     display: block;
 }
 /* 说明性注释 */
-p.comment {
+tips.comment {
     padding: 10px;
     background-color: #f1f6fd;
     border-left: 4px solid #ddd;
     white-space: pre-wrap;
     font-weight: lighter;
     color: #666;
+    display: block;
 }
-p.comment::before {
+tips.comment::before {
     content: '<tips>';
     color: #888;
     font: italic normal 20px sans-serif;
