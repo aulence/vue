@@ -121,6 +121,21 @@ input.form-control, select.form-control {
     background-size: contain;
     display: block;
 }
+/* 说明性注释 */
+p.comment {
+    padding: 10px;
+    background-color: #f1f6fd;
+    border-left: 4px solid #ddd;
+    white-space: pre-wrap;
+    font-weight: lighter;
+    color: #888888;
+}
+p.comment::before {
+    content: '<tips>';
+    color: #aaa;
+    font: italic normal 20px sans-serif;
+    margin-right: 8px;
+}
 /****************************************/
 /* 细节设置 */
 /****************************************/
