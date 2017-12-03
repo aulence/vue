@@ -34,7 +34,7 @@
 
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：通过视图模型里的数据对象添加class</h2>
-				<p :class="styleObject" @click="switchClass">本段落的class是通过数据定义的，所以不需要花括号</p>
+				<p :class="styleObject">本段落的class是通过数据定义的，所以不需要花括号</p>
 				<p>这样就可以修改“app2.styleObject["fz-26"]”等“class”（其实是属性）的布尔值来动态添加/移除class了</p>
 				<p>在控制台中输入“app2.styleObject["text-blue"] = false”观察效果</p>
 			</section>

@@ -129,10 +129,10 @@
 			<section id="app-6">
 				<h2 class="section_h2">#app-6：逻辑判断渲染</h2>
 				<form class="form-group">
-					<label class="checkbox-inline" v-for="radio in types">
-						<input name="hobby" type="radio" v-model="selectItem" :value="radio" v-if="radio === '萌宠'" checked>
-						<input name="hobby" type="radio" v-model="selectItem" :value="radio" v-else>
-						<span>{{radio}}</span>
+					<label class="checkbox-inline" v-for="rdo in types">
+						<input name="hobby" type="radio" v-model="selectItem" :value="rdo" v-if="rdo === '汽车'" checked>
+						<input name="hobby" type="radio" v-model="selectItem" :value="rdo" v-else>
+						<span>{{rdo}}</span>
 					</label>
 				</form>
 				<div class="album" v-if="selectItem === '萌宠'">

@@ -90,16 +90,16 @@ let vm = new Vue({
 		// 表格升序排列
 		ascending: function () {
 			this.roleInfo.sort(function (role1, role2) {
-				let id_1 = role1.id.replace(/[^\d*]/g,''),
-					id_2 = role2.id.replace(/[^\d*]/g,'');
+				let id_1 = role1.id.replace(/\D*/g,''),
+					id_2 = role2.id.replace(/\D*/g,'');
 				return id_1 - id_2;
 			});
 		},
 		// 表格降序排列
 		descending: function () {
 			this.roleInfo.sort(function (role1, role2) {
-				let id_1 = role1.id.replace(/[^\d*]/g,''),
-					id_2 = role2.id.replace(/[^\d*]/g,'');
+				let id_1 = role1.id.replace(/\D*/g,''),
+					id_2 = role2.id.replace(/\D*/g,'');
 				return id_2 - id_1;
 			});
 		}
