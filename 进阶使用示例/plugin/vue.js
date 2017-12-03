@@ -561,9 +561,11 @@ var formatComponentName;
 
   warn = function (msg, vm) {
     if (hasConsole && (!config.silent)) {
-      console.error("[Vue warn]: " + msg + " " + (
-        vm ? formatLocation(formatComponentName(vm)) : ''
-      ));
+      if(msg.includes('<tips>') === false) {
+        console.error("[Vue warn]: " + msg + " " + (
+          vm ? formatLocation(formatComponentName(vm)) : ''
+        ));
+      }
     }
   };
 
