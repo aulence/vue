@@ -124,6 +124,25 @@ input.form-control, select.form-control {
     background-size: contain;
     display: block;
 }
+/* 说明性注释 */
+tips.comment {
+    padding: 20px 10px;
+    background-color: #f4f6fa;
+    border: 1px solid #ddd;
+    border-left: 4px solid #ddd;
+    white-space: pre-wrap;
+    font-weight: lighter;
+    line-height: 1.5;
+    color: #666;
+    margin: 16px 0;
+    display: block;
+}
+tips.comment::before {
+    content: '<tips>';
+    color: #888;
+    font: italic normal 20px sans-serif;
+    margin-right: 8px;
+}
 /****************************************/
 /* 细节设置 */
 /****************************************/
