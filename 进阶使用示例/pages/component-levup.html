@@ -58,16 +58,34 @@
 						></li>
 					</ul>
 				</div>
+
+				<tips class="comment">在该段代码中，li标签内部是通过一个叫做is的属性指定组件名的，这是因为在HTML代码中某些标签是具有一定的固定结构的，如果固定结构不完整可能在有些环境中报出不符合W3C标准的异常，如ol-li、ul-li、select-option、dl-dt/dd、tr-td（thead-tr-th/tbody-tr-td）这样的结构。如果要想这些标签的子元素“欺骗”浏览器，让这些子元素以组件的方式渲染，这个时候就可以用is这个属性来指定组件的名称。</tips>
 			</section>
 
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：再从基础认识组件</h2>
 				<base-component></base-component>
+				<!-- 尝试注释掉上面的组件，并解开下面组件的注释 -->
+				<!-- <base-component :content='dataTxt'></base-component>
+				<base-component content='这是一个显示文本的基本组件 -- by:child-component'></base-component> -->
+				
+				<tips class="comment">该示例展现了一个组件的三种最基本形态。找到对应HTML和JS代码部分，按注释说明进行操作，然后进入浏览器刷新查看效果，从而思考对Vue组件的基本认识</tips>
 			</section>
 
 			<section id="app-3">
 				<h2 class="section_h2">#app-3：通过一个外部对象创建局部组件</h2>
-				<local-component></local-component>
+				<local-component-first 
+					style="color:#d3974a"
+					title="外部模版定义-1"
+					content="这是一个外部对象，为私有组件提供相册展示的模版"
+				></local-component-first>
+				<local-component-second 
+					style="color:#e0658e"
+					title="外部模版定义-2"
+					content="这是一个外部对象，为私有组件提供显示现在时间的模版"
+				></local-component-second>
+				
+				<tips class="comment">该示例展示了在同一个Vue实例里引用多个组件的用法。简略地体现了组件化编程的思想--一个页面的内容是有一个或者多个可配置的组件“拼装”而成的，而组件间相互独立，结构清晰，分工明确，可以实现各自的功能。不会产生传统页面变量和作用域难以管理的问题。</tips>
 			</section>
 
 			<section id="app-4">
@@ -75,17 +93,15 @@
 				<table class="table table-bordered">
 					<thead class="bg-theme">
 						<tr>
-							<td>姓名</td>
-							<td>国家</td>
-							<td>尾兽</td>
-							<td>技能</td>
+							<th v-for="item in thData">{{item}}</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr is="table-row" v-for="naruto in tdData" :prop="naruto" :key="naruto.id"></tr>
+						<tr is="table-row" :prop="naruto" :key="naruto.id" v-for="naruto in tdData"></tr>
 					</tbody>
 				</table>
-				<!-- 另外还有列表的“ul-li”、“ul-li”和下拉菜单的“select-option”这些固定的结构，都需要用“is”属性去代替组件名 -->
+
+				<tips class="comment">该示例相对简单，只是体现了标签v-for指令和组件v-for指令的异同。注意表头是通过标签指令渲染而成，而表体是通过组件的指令渲染而成的。</tips>
 			</section>
 
 			<section id="app-5">
@@ -96,6 +112,8 @@
 				<data-component :class="buttonStyle.info"></data-component>
 				<data-component :class="buttonStyle.warning"></data-component>
 				<data-component :class="buttonStyle.danger"></data-component>
+
+				<tips class="comment">进入对应本章的JS源码的“示例-5”部分，按照注释要求修改代码，然后再回到视图进行点击操作，观察区别，并思考造成这一差异的原因。</tips>
 			</section>
 
 			<section id="app-6">
@@ -103,20 +121,25 @@
 				<child-component communicate="通过“communicate”属性来完成父子组件的解耦"></child-component>
 				<!-- 这里需要注意组件属性的两种命名的转换，即组件属性中的camelCased（驼峰式）命名在HTML中要转换为kebab-case（连线式）命名，否则将会出现Vue的警告，功能也会失效 -->
 				<child-component communicate="这样组件就可以独立了" style-prop="color:#239feb; font: 36px '华文隶书','隶书','宋体'"></child-component>
+
+				<tips class="comment">本节主要体现的是如何通过自定义属性（不带v-bind的情况）去实现子组件的解耦，并且在子组件上省略一些父组件上已经定义好的属性特征。</tips>
 			</section>
 
 			<section id="app-7">
 				<h2 class="section_h2">{{smallHead}}：通过组件属性来实现属性的动态双向数据绑定</h2>
 				<input type="text" class="form-control" v-model="parentMsg1"/>
 				<bind-component :parent-message="parentMsg1"></bind-component>
-				<bind-component :parent-message="parentMsg2"></bind-component>
-				<!-- 这里需要区分组件属性前面加冒号“:”和不加分别是什么情况下的，即字面量和动态（变量）的值 -->
+				<bind-component :parent-message="parentMsg2" @show-text="showVMData" style="color:#2396fd;cursor:pointer;text-decoration:underline;"></bind-component>
+
+				<tips class="comment">这里需要区分组件属性前面加冒号“:”和不加分别是什么情况下的，即字面量和动态（变量）的值。另外需要关注的一个问题就是，第二段文本点击事件的流程为：组件tamplate绑定事件 → 组件内methods定义事件showText → showText事件将show-text事件发送到子组件parentMsg2上 → 由parentMsg2来触发VM（实例）内定义好的showVMData事件...流程相当复杂，需要多加熟悉从而去理解Vue的生命周期。</tips>
 			</section>
 
 			<section id="app-8">
 				<h2 class="section_h2">{{smallHead}}：当Vue的组件在团队中使用时，属性的数据类型验证提示</h2>
 				<!-- 尝试修改组件属性的值，可选值有：str（字符串）、num（数字）和bool（布尔值）,然后观察浏览器控制台 -->
 				<check-component :prop-string="str"></check-component>
+
+				<tips class="comment">进入对应该示例对应的HTML部分，将“:prop-string”属性的值按照注释部分提供的几个值进行修改，并在每次修改之后观察控制台的输出结果（值为“str”时不会有输出），然后通过JS文件对应部分理解控制台输出结果的原因。注意，如果页面有配置“Vue.config.silent”属性，请确保该属性的值为“false”，否则JS部分的验证将无效。</tips>
 			</section>
 
 			<section id="app-9">
@@ -126,6 +149,8 @@
 				<button-calc-add @add-self="calcResult"></button-calc-add>
 				<span>=</span>
 				<span class="resStyle">{{res}}</span>
+
+				<tips class="comment">该示例看似功能简单，但却体现了组件、数据模型、视图、视图模型之间的复杂关系，读懂该例子对于理解组件间的通讯很有帮助。</tips>
 			</section>
 
 		</article>
