@@ -1,0 +1,52 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+html,body {
+    margin: 0;
+    font: 20px "Avenir", Helvetica, "微软雅黑", Arial,sans-serif;
+}
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+}
+nav {
+    padding: 10px 0;
+    ul {
+        width: 960px;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        li {
+            @navColor: #1ccf7f;
+            @height: 40px;
+            height: @height;
+            padding: 0 20px;
+            border-radius: 5px;
+            line-height: @height;
+            float: left;
+            cursor: pointer;
+            &:hover {
+                color: @navColor;
+            }
+            &.active {
+                background-color: @navColor;
+                color: #ffffff;
+            }
+        }
+    }
+}
+main {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+    &>div {
+        width: 100%;
+        position: absolute;
+        &>h1 {
+            margin: 0;
+        }
+    }
+}
