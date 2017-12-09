@@ -1,0 +1,74 @@
+article {
+    width: 640px;
+    padding: 20px;
+    margin: 0 auto;
+    color: #333333;
+    h1 {
+        text-align: center;
+    }
+}
+/* 待办事项输入 */
+.todo-input {
+    // 引用mixin
+    .setInput;
+    width: 100%;
+    padding: 12px;
+}
+/* 待办事项列表 */
+.todo-list {
+    @border-color: #acacac;
+    padding: 0;
+    border: 1px solid @border-color;
+    border-radius: 5px;
+    list-style: none;
+    .noContent {
+        text-align: center;
+        text-indent: -28px;
+        color: #888888;
+    }
+    li {
+        @height: 56px;
+        height: @height;
+        line-height: @height;
+        padding-left: 56px;
+        border-bottom: 1px solid @border-color;
+        position: relative;
+        &:last-child {
+            border-bottom: none;
+        }
+        i.icon {
+            width: 20px; height: 20px;
+            position: absolute;
+            left: 18px; top: 50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+            &.icon-checkbox-no {
+                background: url(../assets/icon-checkbox-no.svg);
+            }
+            &.icon-checkbox-yes {
+                background: url(../assets/icon-checkbox-yes.svg);
+            }
+        }
+        .complete {
+            text-decoration: line-through;
+            color: #999999;
+        }
+        span {
+            display: inline-block;
+            &.content {
+                width: ~"calc(100% - 190px)";
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            &.setTime {
+                width: 178px;
+                position: absolute;
+                right: 12px;
+                text-align: right;
+                font-size: 0.8rem;
+                color: #888888;
+            }
+        }
+    }
+}
