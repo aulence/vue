@@ -1,0 +1,44 @@
+@charset "utf-8";
+// 页面内容宽度设置
+@web-width: 960px;
+
+* {
+    box-sizing: border-box;
+}
+html,body {
+    margin: 0;
+    font: 20px 'Avenir', Helvetica, 'Microsoft YaHei', Arial, sans-serif;
+}
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+}
+nav {
+    @nav-color: #13ac7d;
+    padding: 10px 0;
+    border-bottom: 1px solid lighten(@nav-color, 30%);
+    ul {
+        width: @web-width;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        li {
+            padding: 10px 20px;
+            justify-content: space-between;
+            cursor: pointer;
+            &:hover {
+                color: @nav-color;
+            }
+            &.router-link-active {
+                background-color: @nav-color;
+                color: #ffffff;
+            }
+        }
+    }
+}
+main {
+    width: @web-width;
+    margin: 0 auto;
+}
