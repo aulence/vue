@@ -64,10 +64,10 @@
 
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：再从基础认识组件</h2>
-				<base-component></base-component>
+				<!-- <base-component></base-component> -->
 				<!-- 尝试注释掉上面的组件，并解开下面组件的注释 -->
-				<!-- <base-component :content='dataTxt'></base-component>
-				<base-component content='这是一个显示文本的基本组件 -- by:child-component'></base-component> -->
+				<base-component :content='dataTxt'></base-component>
+				<base-component content='这是一个显示文本的基本组件 -- by:child-component'></base-component>
 				
 				<tips class="comment">该示例展现了一个组件的三种最基本形态。找到对应HTML和JS代码部分，按注释说明进行操作，然后进入浏览器刷新查看效果，从而思考对Vue组件的基本认识</tips>
 			</section>
@@ -128,8 +128,14 @@
 			<section id="app-7">
 				<h2 class="section_h2">{{smallHead}}：通过组件属性来实现属性的动态双向数据绑定</h2>
 				<input type="text" class="form-control" v-model="parentMsg1"/>
-				<bind-component :parent-message="parentMsg1"></bind-component>
-				<bind-component :parent-message="parentMsg2" @show-text="showVMData" style="color:#2396fd;cursor:pointer;text-decoration:underline;"></bind-component>
+				<bind-component 
+					:parent-message="parentMsg1"
+				></bind-component>
+				<bind-component 
+					:parent-message="parentMsg2" 
+					@show-text="showVMData" 
+					:style="setNormal"
+				></bind-component>
 
 				<tips class="comment">这里需要区分组件属性前面加冒号“:”和不加分别是什么情况下的，即字面量和动态（变量）的值。另外需要关注的一个问题就是，第二段文本点击事件的流程为：组件tamplate绑定事件 → 组件内methods定义事件showText → showText事件将show-text事件发送到子组件parentMsg2上 → 由parentMsg2来触发VM（实例）内定义好的showVMData事件...流程相当复杂，需要多加熟悉从而去理解Vue的生命周期。</tips>
 			</section>

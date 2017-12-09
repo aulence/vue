@@ -3,6 +3,7 @@
  * 日期：2017/6/27
  **/
 Vue.config.silent = false;
+Vue.config.productionTip = false;
 
 /**** 示例-1 ****/
 // 定义公共组件
@@ -38,11 +39,12 @@ const app1 = new Vue({
 // 定义一个基本组件
 Vue.component('base-component',{
 	props: ['content'],
-	template: '<div>{{dataTxt}}</div>',
+	// template: '<div>{{dataTxt}}</div>',
 	// 尝试解开下面template注释，并将上面template注释观察
-	// template: '<div>{{content}}</div>',
+	template: '<div>{{content}}</div>',
 	// 在组件内部的data属性只能是一个函数，并保证其有一个对象作为返回值
 	data() {
+		// 。。。各种操作
 		return {
 			dataTxt: '这是一个显示文本的基本组件 -- by:component'
 		}
@@ -60,7 +62,7 @@ const app2 = new Vue({
 const externalComponent_first = {
 	props: ['title','content','style'],
 	template: `<div>
-		<h3 :style="style">{{title}}</h3>
+		<h3>{{title}}</h3>
 		<p>{{content}}</p>
 		<p>
 			<img v-for='url in albumList' :src="url">
@@ -82,7 +84,7 @@ const externalComponent_first = {
 const externalComponent_second = {
 	props: ['title','content','style'],
 	template: `<div style="border-top:1px dashed #ddd">
-		<h3 :style="style">{{title}}</h3>
+		<h3>{{title}}</h3>
 		<p>{{content}}</p>
 		<div>
 			<button type="button" @click="showDate" :style="setStyle">现在的时间</button>
@@ -204,6 +206,7 @@ const app7 = new Vue({
 	data: {
 		parentMsg1: '修改数据也会反应到父组件上',
 		parentMsg2: '但对同一个组件的不同数据是不会产生影响的（可以点击的文本）',
+		setNormal: 'color:#2396fd;cursor:pointer;text-decoration:underline;'
 	},
 	created: function () {
 		this.smallHead = this.$options.el;
