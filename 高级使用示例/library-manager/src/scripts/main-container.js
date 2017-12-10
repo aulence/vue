@@ -5,14 +5,18 @@ import BookInfoList from '@/components/BookInfoList'
 export default {
     name: "MainContainer",
     components: {
+        // header标签部分
         HeaderBlock,
+        // 搜索框部分（含计数器和删除按钮）
         SearchTools,
+        // 图书信息表格部分
         BookInfoList
     },
     data() {
         return {
             thItem: ['书名','描述','作者'],
             bookList: [],
+            // 搜索输入时匹配的数组
             matching: null,
             notFindMatch: false,
             checkedBook: [],
@@ -29,7 +33,7 @@ export default {
         bookFilter() {
             // 如果输入值为空的时候
             if(!this.matching) {
-                // 设置搜索状态
+                // 设置搜索状态（这个状态在删除的时候会用到）
                 this.searching = false;
                 // 显示原有图书列表
                 return this.bookList;
@@ -53,13 +57,16 @@ export default {
         },
         // 是否有图书被选中
         hasCheckedBook() {
+            // 根据选中项的个数返回布尔值
             return this.checkedBook.length > 0 ? true : false;
         }
     },
     methods: {
         loadBookInfo() {
+            // 使用axios进行数据请求
             axios.get('../../static/book-info.json')
             .then((res) => {
+                // 如果请求成功，将bookList空数组替换为请求到的数组
                 this.bookList = res.data;
             })
             .catch(function(){
@@ -68,20 +75,25 @@ export default {
         },
         // 匹配搜索的值
         searchBook(val) {
+            // 如果输入的值为空（去处字符串两端空格）
             if(val.trim() === "") {
                 this.matching = this.bookList;
             }
             else {
+                // 将满足条件的对象数组项返回为一个新的对象那数组
                 this.matching = this.bookList.filter((item) => {
+                    // 将搜索框输入的值作为正则搜索条件
                     const matchReg = new RegExp(val, "ig");
+                    // 匹配书名或作者名
                     return matchReg.test(item.name) || matchReg.test(item.author);
                 });
             }
         },
         // 图书单项选择
         checkChange() {
-            // 筛选中被选中的book对象
+            // 筛选中被选中的book对象返回为一个新的数组对象
             this.checkedBook = this.bookFilter.filter((book) => {
+                // 返回true或者undefined
                 return book.selection;
             });
         },
@@ -92,8 +104,13 @@ export default {
             // 设置计数索引
             let index = 0;
             
+            /**
+             * 这里的checkedBookCount只有在执行删除后才会-1
+             * 而index只有在没有找到选中项的时候才+1
+             */
             while(checkedBookCount) {
                 if(this.bookList[index].selection) {
+                    // 删除数组内对应索引的图书对象
                     this.bookList.splice(index,1);
                     checkedBookCount--;
                 }
@@ -133,11 +150,7 @@ export default {
         }
     },
     created(errMesg) {
+        // 执行书库列表加载
         this.loadBookInfo();
-    },
-    watch: {
-        bookList() {
-            
-        }
     }
 };
