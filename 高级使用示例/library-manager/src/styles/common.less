@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* 样式初始化部分 */
+* {
+    box-sizing: border-box;
+}
+html,body {
+    min-height: 100%;
+    background-color: rgb(100, 90, 82);
+    font: 20px 'Avenir', Helvetica, "Microsoft YaHei", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #f9f3e8;
+    margin: 0; padding: 0;
+}
+body {
+    overflow-y: scroll;
+}
+input, select, textarea, button {
+    border: 1px solid #aaa;
+    outline: none;
+}
+#app {
+    padding-bottom: 50px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    width: 10px;
+    background-image: linear-gradient(90deg, rgb(100, 90, 82), rgb(153, 144, 136));
+}
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-image: linear-gradient(90deg, rgb(71, 56, 45), rgb(134, 120, 111), rgb(65, 50, 39));
+    border-radius: 5px;
+    cursor: -webkit-grab;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(90deg, rgb(129, 114, 104), rgb(190, 174, 163), rgb(129, 115, 106));
+}

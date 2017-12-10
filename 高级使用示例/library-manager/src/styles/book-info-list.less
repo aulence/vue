@@ -1,0 +1,89 @@
+@theme-color: rgb(100, 90, 82);
+/* 搜索没有匹配时显示的文本容器 */
+.noMatching {
+    text-align: center;
+    color: lighten(@theme-color, 30%);
+}
+// 图书列表表格
+table {
+    // 亮度控制
+    @lightness-ctrl: 30%;
+    // 表格主体背景
+    background-color: lighten(@theme-color,@lightness-ctrl);
+    // 表格颜色
+    color: darken(@theme-color,20%);
+    // 表格字体
+    font-size: 0.9rem;
+    // 重设bootstrap样式
+    &.table {
+        // 表头设置
+        thead {
+            tr {
+                th {
+                    background-color: lighten(@theme-color,@lightness-ctrl * 0.5);
+                    font-size: 0.8rem;
+                    border-bottom: 1px solid lighten(@theme-color, 40%);
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    border-bottom: 1px solid lighten(@theme-color, 40%);
+                }
+            }
+        }
+    }
+    /* 隔行变色 */
+    tr:nth-child(even) {
+        background-color: lighten(@theme-color,@lightness-ctrl * 0.8);
+        .describe {
+            & > div {
+                &:after {
+                    background-image: repeating-linear-gradient(90deg, transparent 0, lighten(@theme-color,@lightness-ctrl * 0.8) 60%, lighten(@theme-color,@lightness-ctrl * 0.8) 100%);
+                }
+            }
+        }
+    }
+    /* 被选中时表格行的样式 */
+    .checked-style {
+        background-color: lighten(@theme-color, 35%);
+        color: lighten(@theme-color, 60%);
+        .describe {
+            & > div {
+                &:after {
+                    background-image: repeating-linear-gradient(90deg, transparent 0, lighten(@theme-color,35%) 60%, lighten(@theme-color,35%) 100%);
+                }
+            }
+        }
+    }
+    .checkboxTd {
+        width: 46px;
+        text-align: center;
+        input[type="checkbox"] {
+            width: 20px; height: 20px;
+            cursor: pointer;
+        }
+    }
+    .bookName {
+        width: 260px;
+    }
+    .describe {
+        & > div {
+            width: 540px; height: 76px;
+            padding-right: 20px;
+            overflow: hidden;
+            position: relative;
+            &:after {
+                content: "";
+                width: 156px;
+                height: 22px;
+                padding-left: 4px;
+                background-image: repeating-linear-gradient(90deg, transparent 0, lighten(@theme-color,@lightness-ctrl) 60%, lighten(@theme-color,@lightness-ctrl) 100%);
+                position: absolute;
+                right: 20px;
+                bottom: 4px;
+            }
+        }
+    }
+}
