@@ -3,29 +3,26 @@
         <div class="chooseInfo">
             共有：{{totalCount}} 本，选中 {{checkedCount.length}} 本
         </div>
-        <input type="search" :placeholder="placeholder" @keyup="$emit('search', $event.target.value)">
+        <input type="search" :placeholder="placeholder" @keyup="$emit('search',$event.target.value)">
         <i class="glyphicon glyphicon-search"></i>
-        <button 
-            type="button" 
-            class="btn btn-default delete" 
-            title="删除选中" 
-            v-if="hasCheckedBook"
-            @click="$emit('deleteChecked')"
-        >
-            <span class="glyphicon glyphicon-trash"></span>
-        </button>
+        <transition name="bounce">
+            <button 
+                type="button" 
+                class="btn btn-default delete" 
+                title="删除选中" 
+                v-if="hasCheckedBook"
+                @click="$emit('deleteChecked')"
+            >
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </transition>
     </div>
 </template>
 
 <script>
     export default {
         name: "SearchTools",
-        props: ['placeholder', 'totalCount', 'checkedCount', 'hasCheckedBook'],
-        data() {
-            return {
-               
-            };
-        }
+        props: ['placeholder', 'totalCount', 'checkedCount', 'hasCheckedBook']
     };
 </script>
 
@@ -92,5 +89,22 @@
                 outline: none;
             }
         }
+    }
+    .bounce-enter-active {
+    animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+    animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
     }
 </style>

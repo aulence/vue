@@ -80,7 +80,7 @@ export default {
                 this.matching = this.bookList;
             }
             else {
-                // 将满足条件的对象数组项返回为一个新的对象那数组
+                // 将满足条件的对象数组项返回为一个新的对象数组
                 this.matching = this.bookList.filter((item) => {
                     // 将搜索框输入的值作为正则搜索条件
                     const matchReg = new RegExp(val, "ig");

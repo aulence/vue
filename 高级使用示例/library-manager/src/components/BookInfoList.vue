@@ -46,12 +46,6 @@
                 // 选中时表格行的样式
                 'checked-style': false
             };
-        },
-        methods: {
-            switchCheckState() {
-                this.allChecked = !this.allChecked;
-                this.itemCheck = !this.itemCheck;
-            }
         }
     };
 </script>

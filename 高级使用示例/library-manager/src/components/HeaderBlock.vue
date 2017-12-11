@@ -13,7 +13,6 @@
         props: ['setTitle','smallTitle'],
         data() {
             return {
-                
             };
         }
     };
