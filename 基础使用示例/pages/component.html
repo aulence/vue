@@ -16,7 +16,7 @@
 			<ul class="breadcrumb">
 				<li><a href="../index.html">首页</a></li>
 				<li class="active">Vue组件基础</li>
-			</ul>
+            </ul>
 		</nav>
 	</header>
 
@@ -25,26 +25,29 @@
 			<h1>Vue组件基础</h1>
 
 			<section id="app-1">
-				<h2 class="section_h2">#app-1：</h2>
-				<comp-item></comp-item>
+				<h2 class="section_h2">#app-1：一个简单的私有组件</h2>
+                <comp-item :data="txtData"></comp-item>
+                <tips class="comment">这里的“comp-item”就是挂载到当前视图模型（VM，即View Model）上的子组件，而VM要向组件传递数据是通过视图上的属性值“txtData”向组件内的“data”属性实现的，而在组件内部，需要一个“props”属性定义这个属性，这样一来，在组件内部就可以通过模版语法使用它的VM载体来定义数据了。这样的实现灵感来至于React，而这种思维模式叫做“组件化编程思维”。<br>不过在这里不理解没有关系，在我们的Vue进阶使用实例里面会进行详细说明。现在我们只需要知道何为组件，组件的表现形式是什么样的即可。<br>组件化编程思维是现在JavaScript框架（如Angular、React还有我们的主角Vue）的主要思维模式，它的设计遵从软件设计模式原则。（软件设计模式的六大原则：单一职责、里式替换、依赖倒置、接口隔离、迪米特法则、开闭）</tips>
 			</section>
 
 			<section id="app-2">
-				<h2 class="section_h2">#app-2：</h2>
+				<h2 class="section_h2">#app-2：使用公共组件渲染一个列表</h2>
 				<ul>
 					<li-carinfo-item v-for="car in high_carInfo" v-bind:carprop="car" v-bind:key="car.id"></li-carinfo-item>
-				</ul>
+                </ul>
+                <tips class="comment">该位置出现的组件标签只是为公共组件提供了数据源“high_carInfo”，并且将别名“car”提供给组件内的“props”属性对象内的“carprop”属性。可以这样理解它们的关系：“var carprop = car;”，它们近似一种赋值关系。而“car”是“high_carInfo”内一个个对象的别名。<br>如：“high_carInfo[2].car”指的就是对象“{ name: '宾利' }”</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">#app-3：</h2>
+				<h2 class="section_h2">#app-3：使用不同的数据同一个组件渲染列表</h2>
 				<ul>
 					<li-carinfo-item v-for="car in norm_carInfo" v-bind:carprop="car" v-bind:key="car.id"></li-carinfo-item>
-				</ul>
+                </ul>
+                <tips class="comment">注意这里已经是另外的VM实例了，但是仍然可以使用注册在全局内的公共组件。</tips>
 			</section>
 
 			<section id="app-4">
-				<h2 class="section_h2">#app-4：</h2>
+				<h2 class="section_h2">#app-4：使用同一个VM实例内的不同数据同一个组件渲染不同的列表</h2>
 				<ul class="mr-100">
 					<li-carinfo-item v-for="mobike in lowe_mbick" v-bind:carprop="mobike" :key="mobike.id"></li-carinfo-item>
 				</ul>
@@ -53,7 +56,8 @@
 				</ul>
 				<ul>
 					<li-carinfo-item v-for="mobike in high_mbick" v-bind:carprop="mobike" :key="mobike.id"></li-carinfo-item>
-				</ul>
+                </ul>
+                <tips class="comment">以上的实例都主要体现了组件可复用、低耦合的特点。我们暂时可以用JavaScript内的函数来理解组件，就是当传入不同的参数的时候，函数内的语句照常执行，只是由于传入参数不同导致最终运行结果有所不同。<br>最后再次强调，组件化编程思想是Vue的核心编程思想，掌握组件化编程思维对学习这门框架语言十分有益。在Vue进阶课程里我们会更深入地了解组件的编写使用。</tips>
 			</section>
 
 		</article>

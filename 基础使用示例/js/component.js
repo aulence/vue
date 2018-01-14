@@ -5,19 +5,24 @@
 
 /* 私有组件 */
 let app1 = new Vue({
-	el: '#app-1',
+    el: '#app-1',
+    data: {
+        txtData: 'VM传递过来的数据'
+    },
 	components: {
 		'comp-item': {
+            props: ['data'],
 			template: '<div>' +
 				'<p>我是自定义组件</p>' +
-				'<p>在这里可以写<em id="htmlColor" style="color:#f18c1d">HTML</em>代码</p>' +
+				'<p>在这里可以写<em id="htmlColor" style="color:#f18c1d">HTML</em>代码，也可以嵌入“{{data}}”</p>' +
 			'</div>'
-		}
+        }
 	}
 });
 
 /* 全局组件 */
 Vue.component('li-carinfo-item', {
+    // 属性“carprop”的值来至于对应视图的VM内的data属性内的数据
 	props: ['carprop'],
 	template: '<li>{{ carprop.name }}</li>'
 });
