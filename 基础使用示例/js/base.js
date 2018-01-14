@@ -13,7 +13,8 @@ let app1 = new Vue({
 let app2 = new Vue({
 	el: '#app-2',
 	data: {
-		title: '这是鼠标悬浮后提示的文本'
+        title: '这是鼠标悬浮后提示的文本',
+        url: 'https://www.baidu.com/'
 	}
 });
 
@@ -66,10 +67,4 @@ let app6 = new Vue({
 	}
 });
 
-let app7 = new Vue({
-	el: '#app-7',
-	data: {
-		url: 'https://www.baidu.com/'
-	}
-});
 

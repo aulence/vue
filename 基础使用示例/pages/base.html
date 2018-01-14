@@ -32,11 +32,12 @@
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：动态属性</h2>
                 <p v-bind:title="title">将鼠标移在这行文字上面</p>
+                从新窗口打开<a v-bind:href="url" target="_blank">百度</a>
                 <tips class="comment">Vue的数据源提供的数据不仅可以通过模板语法来显示，可以通过“v-bind”来设置动态的属性，然后将其属性值替换为数据源内对应名称的数据值。</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">#app-3</h2>
+				<h2 class="section_h2">#app-3：显隐指令</h2>
 				<p v-if="show">我是会显示出来</p>
 				<p v-if="hide">我不会显示出来</p>
                 <p v-if="3 + 4 === 7">我是通过一个算术运算表达式通过条件表达式得出的布尔值来决定是否显示的</p>
@@ -50,7 +51,7 @@
 			</section>
 
 			<section id="app-4">
-				<h2 class="section_h2">#app-4：</h2>
+				<h2 class="section_h2">#app-4：渲染对象数组为列表项</h2>
 				<ul>
 					<li v-for="car in carInfo">
 						{{car.name + '的售价为：￥' + parseFloat(car.price).toLocaleString()}}
@@ -60,23 +61,19 @@
 			</section>
 
 			<section id="app-5">
-				<h2 class="section_h2">#app-5：</h2>
+				<h2 class="section_h2">#app-5：事件的绑定</h2>
 				<p>{{ content }}</p>
                 <button v-on:click="addText" class="btn btn-default">添加文本内容</button>
                 <tips class="comment">Vue添加事件需要在标签上添加“v-on:*”指令（“*”指的是事件类型），在指令的值内指定要执行的事件名，如果有参数，可以在事件名后添加一对括号“(event name)”，这和原生JS通过“on*”在标签上设置事件是一样的，但是执行方式却大不一样。<br>而在JS文件内，需要通过VM（数据模型）内的一个叫做“methods”的对象来设置对应的事件名，事件内部需要注意的就是“this”这个关键字，它指向当前的VM实例。</tips>
 			</section>
 
 			<section id="app-6">
-				<h2 class="section_h2">#app-6：</h2>
+				<h2 class="section_h2">#app-6：简易的双向数据绑定</h2>
 				<input v-model="text" type="text" class="form-control">
                 <span class="text-success">{{ text }}</span>
                 <tips class="comment">Vue的双向数据绑定的实现区别于AngularJS的脏治检测机制，Vue是用ES5提供的Object.defineProperty()方法来实现的。<br>此例中，模板语法内的“text”和在input的“v-model”的“text”值是同一个值。“v-model”指令实际上对应的是input的当前真实value值（和设置在标签上的value属性无关），当前value属性值发生变化后，数据模型内的text属性值也会“同步”更新，而数据模型内的数据值发生变化，那视图上的“text”值也随之同步了。</tips>
 			</section>
 
-			<section id="app-7">
-				<h2 class="section_h2">#app-7：</h2>
-				<a v-bind:href="url" target="_blank">页面跳转</a>
-			</section>
 		</article>
 	</main>
 
