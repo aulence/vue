@@ -135,9 +135,9 @@ tips.comment {
     display: block;
 }
 tips.comment::before {
-    content: '<tips>';
-    color: #888;
-    font: italic normal 20px sans-serif;
+    content: '<tips>:';
+    color: #a4bccc;
+    font: normal 20px sans-serif;
     margin-right: 8px;
 }
 /****************************************/
@@ -145,7 +145,7 @@ tips.comment::before {
 /****************************************/
 body {
     background-color: #f3f3f3;
-    font: normal 20px/1.6 "Microsoft YaHei UI";
+    font: normal 20px/1.6 Consolas, 'Courier New', "Microsoft YaHei", sans-serif;
     padding-bottom: 50px;
 }
 main {
