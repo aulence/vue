@@ -26,28 +26,50 @@
 			<h1>Vue构造实例</h1>
 
 			<section id="app-1">
-				<h2 class="section_h2">#app-1：</h2>
+				<h2 class="section_h2">#app-1：外置的数据模型</h2>
 				<input v-model="setName" type="text" class="form-control">
-				<p>{{setName}}</p>
+                <p>{{ setName }}</p>
+                <tips class="comment">数据模型（Model）不仅可以在视图模型（View Model）内定义，还可以在外部定义，但是两种定义方式并非完全等价，这在Vue进阶里会进行探讨。<br>在浏览器的控制台中，通过赋值语句修改“appname.setName”和“app1.setName”的值来观察“#app-1”视图部分的变化。</tips>
 			</section>
 
 			<section id="app-2">
-				<h2 class="section_h2">#app-2：</h2>
+				<h2 class="section_h2">#app-2：外置的数据模型watcher（监视器）</h2>
 				<input v-model="setName" type="text" class="form-control">
 				<p>
 					现在的值是：
-					<span class="newVal">{{setName}}</span>
+					<span class="newVal">{{ setName }}</span>
 				</p>
 				<p>
 					原来的值是：
-					<span class="oldVal">{{oldVal}}</span>
-				</p>
+					<span class="oldVal">{{ oldVal }}</span>
+                </p>
+                <tips class="comment">VM实例可以通过“$watch”方法来检测数据的变化，从而执行指定的语句。该方法带两个参数，第一个参数表示数据模型内指定的属性，类型为字符串。第二个参数是一个函数，这个函数带有两个参数，第一个参数表示数据变化后的新值，第二个参数是数据变化前的原数据值。</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">#app-3：</h2>
-				<p class="content"></p>
-			</section>
+				<h2 class="section_h2">#app-3：create钩子函数</h2>
+                <p class="content" ref="hookElement"></p>
+                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+            </section>
+            
+            <section id="app-4">
+                <h2 class="section_h2">#app-4：mount钩子函数</h2>
+                <p class="content" ref="hookElement">{{ testString }}</p>
+                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+            </section>
+
+            <section id="app-5">
+                <h2 class="section_h2">#app-5：update钩子函数</h2>
+                <p class="content" ref="hookElement">{{ testString }}</p>
+                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+            </section>
+
+            <section id="app-6">
+                <h2 class="section_h2">#app-6：destroy钩子函数</h2>
+                <p class="content" ref="hookElement">{{ str }}!</p>
+                <button type="button" v-on:click="deleteVM">销毁</button>
+                <tips class="comment">当前实例被销毁后，并不意味着这个HTML里面的代码会被移除掉，也不是当前实例真的被销毁了。而是实例内的所有数据、事件都会与视图解除绑定，所有监听器被移除，所有的子实例也会销毁。<br>销毁方法用于那些非组件化的多实例开发场景（比如传统的多页面Web站点），是当确认当前视图不会再出现任何数据更新和不需要执行任何事件后，为了节省内存开销而提升页面性能的一种有效手段。</tips>
+            </section>
 		</article>
 	</main>
 
