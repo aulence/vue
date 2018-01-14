@@ -133,6 +133,7 @@ tips.comment {
     color: #666;
     margin: 16px 0;
     display: block;
+    clear: both;
 }
 tips.comment::before {
     content: '<tips>:';
