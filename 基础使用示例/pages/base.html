@@ -29,37 +29,48 @@
                 <tips class="comment">Vue可以使用模版语法，将数据源（数据模型，也就是MVVM中的Model部分）渲染进DOM里，而无需再人为地去操作DOM来实现数据在视图内的显示（也就是MVVM中的第二个“V”字母view）。                <br>模版语法的实现依赖于模板引擎，现在比较流行的模板语法引擎有：Mustache、HandlebarsJS、Underscore Templates、Embedded JS Templates和ade templating。您可以通过查看<a href="https://github.com/janl/mustache.js">&lt;Mustache&gt;</a>的GitHub，或者查看<a href="http://handlebarsjs.com/">Handlebars</a>的官网来了解模版引擎的配置和使用方式。<br>Vue已经内置了模板引擎，所以我们在Vue的开发环境下直接使用模板语法，而不需要进行任何多余的库引用和配置。</tips>
 			</section>
 
-			<section v-bind:title="title" id="app-2">
-				<h2 class="section_h2">#app-2：</h2>
-				<p>将鼠标移过来</p>
+			<section id="app-2">
+				<h2 class="section_h2">#app-2：动态属性</h2>
+                <p v-bind:title="title">将鼠标移在这行文字上面</p>
+                <tips class="comment">Vue的数据源提供的数据不仅可以通过模板语法来显示，可以通过“v-bind”来设置动态的属性，然后将其属性值替换为数据源内对应名称的数据值。</tips>
 			</section>
 
 			<section id="app-3">
 				<h2 class="section_h2">#app-3</h2>
 				<p v-if="show">我是会显示出来</p>
-				<p v-if="hide">#我不会显示出来</p>
-				<p v-if="hide">#我不会显示出来</p>
+				<p v-if="hide">我不会显示出来</p>
+                <p v-if="3 + 4 === 7">我是通过一个算术运算表达式通过条件表达式得出的布尔值来决定是否显示的</p>
+                <p v-if="'字符串'">我是通过一个字符串转换为布尔值后显示出来的</p>
+                <p v-if="0">由于0的布尔值为false，所以我不会显示</p>
+                <p v-if="[1,2,3]">数组的布尔值为true，所以也能显示</p>
+                <tips class="comment">Vue可以通过“v-if”指令内的值对应数据源的布尔值来决定是否生成到页面上，而指令内的值可以是字面量的，也可以是数据源内的属性。该指令转换布尔值的规则和原生JavaScript的if语句基本一致。</tips>
+                <p v-show="show">当v-show的布尔值为true的时候显示</p>
+                <p v-show="hide">当v-show的布尔值为true的时候显示</p>
+                <tips class="comment">除了“v-if”指令，还有一个和它表现十分相似的指令“v-show”。<br>相同点是，当它们对应的布尔值为true的时候都会显示到页面上。<br>不同点是，当它们的对应的布尔值为false的时候，“v-if”不会将元素渲染到视图内，而“v-show”会将元素渲染到视图内，只不过对应的样式属性“display”的值为“none”而已。</tips>
 			</section>
 
 			<section id="app-4">
 				<h2 class="section_h2">#app-4：</h2>
 				<ul>
 					<li v-for="car in carInfo">
-						{{car.name + '的售价为：￥' + car.price}}
+						{{car.name + '的售价为：￥' + parseFloat(car.price).toLocaleString()}}
 					</li>
-				</ul>
+                </ul>
+                <tips class="comment">在Vue里使用循环遍历数据非常的简单，语法结构及表现和AngularJS等框架是一样的，是将循环体写在了视图内，这样简化了JavaScript代码的编写，也无需去对DOM进行额外的处理。<br>在对应的HTML源码中，“v-for”指令内的“car”是我们为“carInfo”这个数据源内的对象数组内的每一项对象取的别名，命名规则满足ES命名规范即可。</tips>
 			</section>
 
 			<section id="app-5">
 				<h2 class="section_h2">#app-5：</h2>
 				<p>{{ content }}</p>
-				<button v-on:click="addText" class="btn btn-default">添加文本内容</button>
+                <button v-on:click="addText" class="btn btn-default">添加文本内容</button>
+                <tips class="comment">Vue添加事件需要在标签上添加“v-on:*”指令（“*”指的是事件类型），在指令的值内指定要执行的事件名，如果有参数，可以在事件名后添加一对括号“(event name)”，这和原生JS通过“on*”在标签上设置事件是一样的，但是执行方式却大不一样。<br>而在JS文件内，需要通过VM（数据模型）内的一个叫做“methods”的对象来设置对应的事件名，事件内部需要注意的就是“this”这个关键字，它指向当前的VM实例。</tips>
 			</section>
 
 			<section id="app-6">
 				<h2 class="section_h2">#app-6：</h2>
 				<input v-model="text" type="text" class="form-control">
-				<span class="text-success">{{ text }}</span>
+                <span class="text-success">{{ text }}</span>
+                <tips class="comment">Vue的双向数据绑定的实现区别于AngularJS的脏治检测机制，Vue是用ES5提供的Object.defineProperty()方法来实现的。<br>此例中，模板语法内的“text”和在input的“v-model”的“text”值是同一个值。“v-model”指令实际上对应的是input的当前真实value值（和设置在标签上的value属性无关），当前value属性值发生变化后，数据模型内的text属性值也会“同步”更新，而数据模型内的数据值发生变化，那视图上的“text”值也随之同步了。</tips>
 			</section>
 
 			<section id="app-7">
