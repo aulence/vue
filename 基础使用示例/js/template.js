@@ -3,7 +3,7 @@
  * 日期：2017/4/19
  **/
 
-let app1 = new Vue({
+const app1 = new Vue({
 	el: '#app-1',
 	data: {
 		content: '一次性插值的内容，数据更新不会影响插值的节点'
@@ -15,7 +15,7 @@ let app1 = new Vue({
 	}
 });
 
-let app2 = new Vue({
+const app2 = new Vue({
 	el: '#app-2',
 	data: {
 		content1: '<span style="color: #2397ec">正常的文本内容</span>',
@@ -23,36 +23,32 @@ let app2 = new Vue({
 	}
 });
 
-let app3 = new Vue({
+const app3 = new Vue({
 	el: '#app-3',
 	data: {
-		content1: 'Mustache不能在HTML属性中使用，应使用v-bind指令。Mustache语法如下：',
-		content2: '$("#content").html(Mustache.render("{{title}} spends {{cacl}}", view);',
-		content3: '也就是说双花括符“{{}}”的写法不能用于属性'
-	}
-});
-
-let app4 = new Vue({
-	el: '#app-4',
-	data: {
+        // 禁用状态
 		state: true
-	}
+    },
+    methods: {
+        // 主按钮执行的操作
+        runMethod: function() {
+            alert('操作成功执行！');
+        },
+        // 激活按钮操作
+        activer: function() {
+            // 将禁用状态设置为false
+            this.state = false;
+        },
+        // 禁用按钮操作
+        disabler: function() {
+            // 将禁用状态设置为true
+            this.state = true;
+        }
+    }
 });
-let btn1 = document.getElementById('app-4-btn1'),
-	btn2 = document.getElementById('app-4-btn2'),
-	btn3 = document.getElementById('app-4-btn3');
-btn1.onclick = function () {
-	alert(1);
-};
-btn2.onclick = function () {
-	app4.state = false;
-};
-btn3.onclick = function () {
-	app4.state = true;
-};
 
-let app5 = new Vue({
-	el: '#app-5',
+const app4 = new Vue({
+	el: '#app-4',
 	data: {
 		total: 1000,
 		state: '正确',
@@ -67,17 +63,17 @@ let app5 = new Vue({
 	}
 });
 
-let app6 = new Vue({
-	el: '#app-6',
+const app5 = new Vue({
+	el: '#app-5',
 	data: {
 		gender: '保密'
 	}
 });
 
-let app7 = new Vue({
-	el: '#app-7',
+const app6 = new Vue({
+	el: '#app-6',
 	data: {
-		hoby: ['电影']
+		hobby: ['电影']
 	}
 });
 

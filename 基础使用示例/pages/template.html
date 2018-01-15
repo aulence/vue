@@ -24,47 +24,48 @@
 		<article>
 			<h1>Vue模版语法</h1>
 
-			<section id="app-1" @click="modifContent">
-				<h2 class="section_h2">#app-1</h2>
+			<section id="app-1" @click="modifContent" class="pointer">
+				<h2 class="section_h2">#app-1：只更新一次数据的指令“v-once”</h2>
 				<p v-once>{{content}}</p>
-				<p>{{content}}</p>
+                <p>{{content}}</p>
+                <tips class="comment">点击“#app-1”内任意区域，或通过浏览器控制台对“app1.content”的值进行多次修改查看当前实例控制范围内视图的变化。
+                    <p>当视图数据只希望被更新一次，而不希望被进行二次修改就可以为当前标签添加上“v-once”指令，但需要注意的是该指令会影响该标签下所有视图数据的更新。</p>
+                </tips>
 			</section>
 
 			<section id="app-2">
-				<h2 class="section_h2">#app-2</h2>
+				<h2 class="section_h2">#app-2：显示HTML元素的指令“v-html”</h2>
 				<p>{{content1}}</p>
-				<p v-html="content2"></p>
+                <p v-html="content2"></p>
+                <tips class="comment">在某些时候我们希望通过视图显示我们定义在数据模型内的HTML代码的时候可以使用“v-html”属性，通过模版语法只会将HTML当做字符串显示出来。</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">>#app-3</h2>
-				<p v-html="content1"></p>
-				<p>{{content2}}</p>
-				<p v-html="content3"></p>
+				<h2 class="section_h2">#app-3：数据驱动模式和事件驱动模式</h2>
+				<p>
+					<button id="app-4-btn1" type="button" v-bind:disabled="state" class="btn btn-default" v-on:click="runMethod">被操作状态的按钮</button>
+					<button id="app-4-btn2" type="button" class="btn btn-info" v-on:click="activer">激活按钮</button>
+					<button id="app-4-btn3" type="button" class="btn btn-warning" v-on:click="disabler">禁用按钮</button>
+                </p>
+                <tips class="comment">通过点击“激活按钮”和“禁用按钮”来操作“被操作状态的按钮”的状态。
+                    <p>该例子体现的是如何通过事件来修改数据模型中的数据来影响视图内元素的表现。这个示例是事件驱动模式和数据驱动模式结合的一个精髓的表现，也是通过状态来管理行为的体现（是一种对“状态管理”设计模式的良好实践），通过加深对该示例的理解可以更好的对Vue这类JavaScript框架进行实践运用。</p>
+                </tips>
 			</section>
 
 			<section id="app-4">
-				<h2 class="section_h2">#app-4</h2>
-				<p>
-					<button id="app-4-btn1" type="button" v-bind:disabled="state" class="btn btn-default">被操作状态的按钮</button>
-					<button id="app-4-btn2" type="button" class="btn btn-info">激活按钮</button>
-					<button id="app-4-btn3" type="button" class="btn btn-warning">禁用按钮</button>
-				</p>
-			</section>
-
-			<section id="app-5">
-				<h2 class="section_h2">#app-5：</h2>
+				<h2 class="section_h2">#app-4：支持JavaScript表达式的模板引擎</h2>
 				<p>Vue供了完全的JavaScript表达式支持，如下：</p>
 				<p>{{total / 5}}</p>
 				<p>{{state === '正确' ? '开启状态' : '关闭状态'}}</p>
 				<p>{{state != '正确' ? '开启状态' : '关闭状态'}}</p>
 				<p>{{skillArr[2]}}</p>
 				<p>{{fn(7,8)}}</p>
-				<p v-html="(total - 200) + obj.quantifier + obj.personName"></p>
+                <p v-html="(total - 200) + obj.quantifier + obj.personName"></p>
+                <tips class="comment">模板引擎内可以使用JavaScript几乎所有允许的表达式，甚至是函数。</tips>
 			</section>
 
-			<section id="app-6">
-				<h2 class="section_h2">#app-6</h2>
+			<section id="app-5">
+				<h2 class="section_h2">#app-5：“v-model”在表单中的运用——单选按钮</h2>
 				<p>
 					<label>
 						男
@@ -78,30 +79,32 @@
 						保密
 						<input name="gender" type="radio" v-model="gender" value="保密">
 					</label>
-					<!--<input type="radio" name="gender" v-bind:checked="gender">-->
+                    <!-- <input name="gender" type="radio" v-bind:checked="gender"> -->
+                    <tips class="comment">“v-model”是实现双向数据绑定的关键指令，在表单这类复杂元素的操作中还能用于快速访问和设置单选按钮的值。可以在浏览器控制台中访问或设置“app5.gender”来观察输出结果或对应视图内单选按钮的变化。</tips>
 				</p>
 			</section>
 
-			<section id="app-7">
-				<h2 class="section_h2">#app-7</h2>
+			<section id="app-6">
+				<h2 class="section_h2">#app-6：“v-model”在表单中的运用——多选按钮</h2>
 				<p>
 					<label>
 						游戏
-						<input name="hoby" type="checkbox" v-model="hoby" value="游戏">
+						<input name="hobby" type="checkbox" v-model="hobby" value="游戏">
 					</label>
 					<label>
 						旅游
-						<input name="hoby" type="checkbox" v-model="hoby" value="旅游">
+						<input name="hobby" type="checkbox" v-model="hobby" value="旅游">
 					</label>
 					<label>
 						电影
-						<input name="hoby" type="checkbox" v-model="hoby" value="电影">
+						<input name="hobby" type="checkbox" v-model="hobby" value="电影">
 					</label>
 					<label>
 						美食
-						<input name="hoby" type="checkbox" v-model="hoby" value="美食">
+						<input name="hobby" type="checkbox" v-model="hobby" value="美食">
 					</label>
-				</p>
+                </p>
+                <tips class="comment">“v-model”也能表现出多选按钮选中值的情况，只不过需要注意，无论是返回的结果还是要进行设置都是“数组”的形式，这点可以通过在浏览器中输出“app6.hobby”来查看。</tips>
 			</section>
 		</article>
 	</main>
