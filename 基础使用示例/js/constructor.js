@@ -38,7 +38,8 @@ app2.$watch('setName', function (newVal, oldVal) {
 let createData = "未处理";
 /* #app3 */
 const app3 = new Vue({
-	el: '#app-3',
+    // 注意这里指定的“el”并非是在构造函数的参数内配置的
+    // 而是在实例最后通过“$mount”方法进行指定的
 	data: {
         handle: createData,
 		name: '我是app-3的名称',
@@ -51,8 +52,8 @@ const app3 = new Vue({
 	// 钩子函数：数据实例创建后执行
 	created: function () {
         document.getElementsByClassName('content')[0].textContent = `${this.handle}： ${this.name}，${this.prop}。`;
-	}
-});
+    }
+}).$mount('#app-3');
 
 /* #app4 */
 const app4 = new Vue({

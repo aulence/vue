@@ -29,7 +29,9 @@
 				<h2 class="section_h2">#app-1：外置的数据模型</h2>
 				<input v-model="setName" type="text" class="form-control">
                 <p>{{ setName }}</p>
-                <tips class="comment">数据模型（Model）不仅可以在视图模型（View Model）内定义，还可以在外部定义，但是两种定义方式并非完全等价，这在Vue进阶里会进行探讨。<br>在浏览器的控制台中，通过赋值语句修改“appname.setName”和“app1.setName”的值来观察“#app-1”视图部分的变化。</tips>
+                <tips class="comment">数据模型（Model）不仅可以在视图模型（View Model）内定义，还可以在外部定义，但是两种定义方式并非完全等价，这在Vue进阶里会进行探讨。
+                    <p>在浏览器的控制台中，修改“appname.setName”和“app1.setName”的值来观察“#app-1”视图部分的变化。</p>
+                </tips>
 			</section>
 
 			<section id="app-2">
@@ -49,26 +51,36 @@
 			<section id="app-3">
 				<h2 class="section_h2">#app-3：create钩子函数</h2>
                 <p class="content" ref="hookElement"></p>
-                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+                <tips class="comment">“create”发生在Vue构造实例生命周期的第一个阶段，在这个阶段前有一个“beforeCreate”函数可以执行，这个函数在执行的时候整个实例化过程并未开始，可以在这个函数里执行一些处理一些“预置数据”，以备实例构造过程中使用。
+                    <p>在Vue实例构造完成后又有一个“created”函数可以执行，这个函数可以访问到已经实例化完成后对象内部的数据，即可以对该实例对象的数据进行操作了。AJAX请求也可以在这个函数内执行了。</p>
+                    <p>Vue构造实例过程详情请查看Vue的<a href="https://cn.vuejs.org/images/lifecycle.png" target="_blank">生命周期图</a>。</p>
+                </tips>
             </section>
             
             <section id="app-4">
                 <h2 class="section_h2">#app-4：mount钩子函数</h2>
                 <p class="content" ref="hookElement">{{ testString }}</p>
-                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+                <tips class="comment">Vue生命周期的第二个阶段主要是指定DOM元素，通过实例内参数对象的“el”属性或者实例后“$mount”方法内的参数指定（见对应本章JS代码“#app-3”代码的最后部分）。
+                    <p>而Vue生命周期的第三个阶段是编译模板“template”，即将对应视图View部分的代码进行编译，将其Vue的模板语法、指令、事件、动态属性等内容编译为标准的HTML代码，而这里的HTML代码暂时还是以“Virtual  DOM”（虚拟DOM）的形式存在。编译模板有两种方式，我们以后会接触到。</p>
+                    <p>Vue生命周期的第四个阶段就是将视图内的元素替换为编译完成后的HTML元素，这个阶段有两个钩子函数，分别是“beforeMount”和“mounted”，在beforeMount函数执行的时候，还无法使用Vue进行DOM元素的访问，可以作为DOM被替换的前置操作。而mounted函数执行的时候，DOM替换工作已经完成，可以在该函数内通过“$refs”来获取在标签上已经设置好ref属性的DOM元素了。</p>
+                </tips>
             </section>
 
             <section id="app-5">
                 <h2 class="section_h2">#app-5：update钩子函数</h2>
                 <p class="content" ref="hookElement">{{ testString }}</p>
-                <tips class="comment">详情请查看Vue的生命周期图。</tips>
+                <tips class="comment">在Vue生命周期的第四个阶段完成后，一次Vue的实例化过程就算完成了，但这并不意味着Vue的生命周期就结束了。在这个阶段后，仍然可以对数据进行更新。只有在浏览器发生跳转、关闭浏览器或者手动执行销毁（下一个示例的内容）等行为的时候Vue的生命周期才算结束。
+                    <p>在当前视图模型内对应的数据模型发生变化的时候也会触发两个钩子函数，即“beforeUpdate”和“updated”，beforeUpdate在数据模型发生数据更新前执行，updated在数据模型发生数据更新后执行。</p>
+                </tips>
             </section>
 
             <section id="app-6">
                 <h2 class="section_h2">#app-6：destroy钩子函数</h2>
                 <p class="content" ref="hookElement">{{ str }}!</p>
                 <button type="button" v-on:click="deleteVM">销毁</button>
-                <tips class="comment">当前实例被销毁后，并不意味着这个HTML里面的代码会被移除掉，也不是当前实例真的被销毁了。而是实例内的所有数据、事件都会与视图解除绑定，所有监听器被移除，所有的子实例也会销毁。<br>销毁方法用于那些非组件化的多实例开发场景（比如传统的多页面Web站点），是当确认当前视图不会再出现任何数据更新和不需要执行任何事件后，为了节省内存开销而提升页面性能的一种有效手段。</tips>
+                <tips class="comment">当前实例被销毁后，并不意味着这个HTML里面的代码会被移除掉，也不是当前实例真的被销毁了。而是实例内的所有数据、事件都会与视图解除绑定，所有监听器被移除，所有的子实例也会销毁。
+                    <p>销毁方法用于那些非组件化的多实例开发场景（比如传统的多页面Web站点），是当确认当前视图不会再出现任何数据更新和不需要执行任何事件后，为了节省内存开销而提升页面性能的一种有效手段。</p>
+                </tips>
             </section>
 		</article>
 	</main>
