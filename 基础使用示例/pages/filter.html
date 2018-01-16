@@ -29,21 +29,38 @@
 				<p>{{content | capitalize}}</p>
 				<p>{{content | uppercase}}</p>
 				<p>{{content | lowerCase}}</p>
-				<p>{{content | bookmark}}</p>
+                <p>{{content | bookmark}}</p>
+                
+                <tips class="comment">在Vue 1.0版本中提供了一系列的内置过滤器，由于作者一些设计理念上的变化（部分开发者认为这样有些“矫枉过正”），导致在Vue 2.0之后，所有的内置过滤器都被移除了，只有编写自定义过滤器了。
+                    <p>在Vue 2.0的版本之后提供了两种形式的过滤器，一种是通过“Vue.filter”方法来注册全局的过滤器，还有一种是在Vue的实例（见“#app-4”的JS源码部分）或者是组件内部通过“filter”选项来配置过滤器。</p>
+                    <p>详情查看<a href="https://cn.vuejs.org/v2/guide/filters.html" target="_blank">Vue官网文档——过滤器</a>。</p>
+                </tips>
 			</section>
 
 			<section id="app-2">
-				<h2 class="section_h2">#app-2:货币格式1</h2>
-				<p>{{money | currency}}</p>
+				<h2 class="section_h2">#app-2:货币格式</h2>
+                <p>{{money | currency}}</p>
+                <tips class="comment">这是一个处理货币格式的过滤器，这样的过滤器在中介类或金融类网站上非常有用武之地。（中介类网站如：淘宝、京东、拼多多、链家、滴滴、美团、广告平台等等）</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">#app-2:货币格式2</h2>
+				<h2 class="section_h2">#app-3:对匹配类型的数据进行过滤（货币格式）</h2>
 				<ul>
-					<li v-for="item in info">
+					<li v-for="item in keyboardInfo">
 						{{item | currency}}
 					</li>
-				</ul>
+                </ul>
+                <tips class="comment">可以在过滤器内部实现对数据类型的判断，让配置类型的数据参与转换操作，而不匹配的数据类型直接返回本身的值。</tips>
+            </section>
+            
+            <section id="app-4">
+                <h2 class="section_h2">#app-4:转换毫秒数为本地日期</h2>
+                <ul>
+					<li v-for="item in refrigerator">
+						{{item | toLocalDate}}
+					</li>
+                </ul>
+                <tips class="comment">此例是将过滤器定义在实例内部的，其它实例无法使用。如果是需要将过滤定义在组件内部，代码格式完全相同。</tips>
 			</section>
 		</article>
 	</main>
