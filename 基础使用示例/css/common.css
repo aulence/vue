@@ -85,6 +85,7 @@ input.form-control, select.form-control {
 /* 手型效果 */
 .pointer {
     cursor: pointer;
+    user-select: none;
 }
 .transion_0_3 {
     transition-property: all;
