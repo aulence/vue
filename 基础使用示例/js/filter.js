@@ -46,7 +46,7 @@ window.onload = function () {
             // 毫秒转本地日期格式过滤器
             toLocalDate: function(value) {
                 if (!value) {
-                    return '';
+                    return '[非法日期格式]';
                 }
                 if(typeof value === 'number') {
                     value = new Date(value).toLocaleString();
@@ -100,9 +100,6 @@ Vue.filter('bookmark', function (val) {
 
 // 货币符号
 Vue.filter('currency', function(value) {
-    if (!value) {
-        return '';
-    }
     if(typeof value === 'number') {
         value = '￥' + parseFloat(value.toFixed(2)).toLocaleString();
         // 如果有小数
