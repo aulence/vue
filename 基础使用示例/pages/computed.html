@@ -26,44 +26,80 @@
 
 			<section id="app-1">
 				<h2 class="section_h2">#app-1：字符翻转</h2>
-				<p @click="flipContent" class="pointer transion_0_3">{{content}}</p>
+                <p class="fz-32" ref="flipString">{{reversedContent}}</p>
+                <tips class="comment">计算属性是为了减少模版内的值的表达式而诞生的一种特殊的“data”，也就是说首先它是一种数据模型，访问计算属性的值就和访问data内的值是一样的。但是计算属性却是一个“动态的数据”，其值的结果由一个函数返回。详情见<a href="#" target="_blank">官方文档--计算属性和观察者</a>一章。
+                    <p>对于任何需要通过复杂逻辑的数据结果，都应该使用计算属性。计算属性一般情况需要以data为基本数据来源，然后根据需要得在函数内进行处理最后得出所需数据。</p>
+                </tips>
 			</section>
 
 			<section id="app-2">
-				<h2 class="section_h2">#app-2：计算属性</h2>
-				<p @click="getComputedNowTime" class="pointer transion_0_3">{{nowtime}}</p>
+				<h2 class="section_h2">#app-2：通过事件更新数据</h2>
+                <p @click="getNowTime" class="pointer fz-32 transion_0_3" ref="timer">{{ nowtime }}</p>
+                <tips class="comment">此例通过事件来更新日期数据，当多次点击视图部分，会发现日期数据在每次点击的时候都会被更新（每次点击间隔至少1秒），这个原理当然不必多说，可以通过下一个示例来对比该例子。</tips>
 			</section>
 
 			<section id="app-3">
-				<h2 class="section_h2">#app-3：事件触发</h2>
-				<p @click="getNowTime" class="pointer transion_0_3">{{nowtime}}</p>
-			</section>
-
-			<section id="app-4">
-				<h2 class="section_h2" ref="app4_h2">#app-4：watch回调（尝试在控制台修改数据模型，然后再用输入框绑定数据模型进行修改）</h2>
-				<p>{{fullName}}</p>
-				<p>
-					<input type="text" v-model="fullName" class="form-control">
-				</p>
-			</section>
+				<h2 class="section_h2">#app-3：通过计算属性更新数据</h2>
+                <p @click="getComputedNowTime" class="pointer fz-32 transion_0_3" ref="timer">{{ nowtime }}</p>
+                <tips class="comment">当点击视图部分的时候会获取到当前日期，而后续再点击却没有任何效果了。这里需要关注的重点在于，为什么数据不会更新。
+                    <p>原因是计算属性本身具有一个特性，它们基于自己的依赖进行缓存，只有在它们的依赖发生变化的时候，它才会重新去取值。也就是说如果它现在依耐一个名为“content”的数据，如果这个数据没有发生值的变化，那它会将缓存的值直接返回，而不会再次执行函数。</p>
+                    <p>相比每次点击必会执行的事件，计算属性在这方面会有更为出色的性能表现。为了证明计算属性的这一特点，请看下一个示例。</p>
+                </tips>
+            </section>
+            
+            <section id="app-4">
+                <h2 class="section_h2">#app-4：“外懒内勤”的计算属性</h2>
+                <p @click="modifData" class="pointer fz-32 transion_0_3" ref="timer">
+                    {{ testData }}
+                    ----
+                    {{ counter }}
+                </p>
+                <tips class="comment">首先点击视图部分，观察数据是否有变化。然后进入到本例对应JS源码部分的“methods”部分，按照注释要求分两次“修改数据/点击视图”来测试功能。
+                    <p>按照“注释1”的修改，发现在视图被点击之后计数器会变成“2”，是因为数据一共发生了两次变化。第一次其实是数据的缓存初始化的时候执行的“++”操作，第二次是点击之后所依赖的“test”数据发生了变化。之后点击再无反应，因为数据没有发生变化了，计算属性的函数也不再执行。</p>
+                    <p>按照“注释2”的修改，点击视图后计数器会不断增加，是因为所依赖的数据“test”每一次和上一次都不同，所以计算属性内的函数会被无限次的执行。</p>
+                </tips>
+            </section>
 
 			<section id="app-5">
-				<h2 class="section_h2">#app-5：用计算属性替代watch回调（尝试在控制台修改数据模型，然后再用输入框绑定数据模型进行修改）</h2>
-				<p>{{fullName}}</p>
+				<h2 class="section_h2" ref="app4_h2">#app-5：watch回调</h2>
+				<p>{{ fullName }}</p>
 				<p>
 					<input type="text" v-model="fullName" class="form-control">
-				</p>
+                </p>
+                <tips class="comment">尝试在控制台通过“app5.firstName”、“app5.lastName”和“app5.fullName”修改数据模型，然后再用输入框进行修改，观察效果，再通过对应JS思考执行流程。
+                    <p>可以发现源码中有一个watch属性，在“Vue构造实例”一章中的第二个示例里我们已经见识过“watcher”的外置用法了，而这里是将watcher的“内置”用法。</p>
+                    <p>以上测试要求是为了表现出，无论是视图上还是数据模型内部发生的数据变化都是会被watcher检测到的。</p>
+                    <p>但是使用watcher去检测这样的数据变化存在两个问题，一个问题是性能并不高，第二个问题是watcher的数据耦合严重，会导致数据管理变得复杂且混乱。</p>
+                </tips>
 			</section>
 
 			<section id="app-6">
-				<h2 class="section_h2">#app-6：计算属性的set方法</h2>
-				<p>{{fullName}}</p>
+				<h2 class="section_h2">#app-6：用计算属性替代watch回调</h2>
+				<p>{{ fullName }}</p>
 				<p>
 					<input type="text" v-model="fullName" class="form-control">
-				</p>
+                </p>
+                <tips class="comment">针对以上示例存在的问题，我们可以用计算属性来解决。通过JS部分“app5”和“app6”的比较，会发现“app6”在代码上明显变得简洁很多。只要“firstName”或者“lastName”发生值的变化，那马上会被计算属性“fullName”检测到，并实时更新视图上的“fullName”。
+                    <p>但是这样也会存在一个问题，就是数据变成了“单向数据流”，即数据模型的修改会反应到视图上，但是对视图上值的修改不会反应到数据模型内去（这点可以通过控制台输出“app6.firstName”或者“app6.lastName”来观察）。所以这样也不是一个好办法，要解决这个问题请看下例。</p>
+                </tips>
 			</section>
 
 			<section id="app-7">
+				<h2 class="section_h2">#app-7：计算属性的set方法</h2>
+				<p>{{ fullName }}</p>
+				<p>
+					<input type="text" v-model="fullName" class="form-control">
+                </p>
+                <tips class="comment">本例使用的仍然是计算属性，但是通过修改视图上文本框的值会发现文本框上方的视图数据也在发生着变化，也就是说数据模型也在变化（可以通过控制台输出“app7.firstName”或者“app7.lastName”来证明）。
+                    <p>这得益于计算属性的“get”和“set”方法。详情查看对应JS源码。</p>
+                </tips>
+			</section>
+
+			<section id="app-8">
+                <h2 class="section_h2">#app-8：计算属性结合axios及lodash函数库的综合示例</h2>
+
+                <tips class="comment">虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。这就是为什么Vue通过watch选项提供了一个更通用的方法，来响应数据的变化。当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。</tips>
+
 				<p>
 					问我一个问题：
 					<input v-model="question">
@@ -71,7 +107,27 @@
 				<p>{{ answer }}</p>
 				<p>
 					<img v-bind:src="getImg" class="gif-img">
-				</p>
+                </p>
+                
+                <tips class="comment">本例中使用了两个库对应的参考链接：
+                    <ol>
+                        <li>
+                            <a href="https://lodash.com/" target="_blank">lodash官方网站</a>
+                        </li>
+                        <li>
+                            <a href="http://lodashjs.com/docs/" target="_blank">lodas中文文档</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/axios/axios" target="_blank">axios的GitHub</a>
+                        </li>
+                        <li>
+                            <a href="https://www.npmjs.com/package/axios" target="_blank">axios的npm</a>
+                        </li>
+                        <li>
+                            <a href="https://www.jianshu.com/p/df464b26ae58" target="_blank">axios的简书</a>
+                        </li>
+                    </ol>
+                </tips>
 			</section>
 		</article>
 	</main>
