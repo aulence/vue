@@ -30,7 +30,7 @@ const app2 = new Vue({
 		titleName: '，头衔：',
 		nameIs: '，姓名：',
 		listRender_obj: roleInfo_obj
-	}
+    }
 });
 
 
@@ -79,7 +79,7 @@ const app5 = new Vue({
 const app6 = new Vue({
 	el: '#app-6',
 	data: {
-		selectItem: '美女',
+		selectItem: '风景',
 		types: ['萌宠','风景','汽车','美女'],
 		imgStyle: 'height: 160px; margin-right: 10px; border-radius: 15px',
 		albums: {

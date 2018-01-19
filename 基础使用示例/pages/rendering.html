@@ -43,7 +43,7 @@
 						<tr v-for="tr in listRender_obj">
 							<td>{{ tr.star }}</td>
 							<td>{{ tr.title }}</td>
-							<td>{{ tr.name }}</td>
+                            <td>{{ tr.name }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -104,14 +104,14 @@
 					<dt>{{food.type}}</dt>
 					<dd>{{food.name}}</dd>
 				</dl>
-				<tips class="comment">在程序运行之后，“template”标签并不会被渲染到页面上。这两种语法结构并没有功能上的差异，可以将“v-if”、“v-show”、“v-for”等指令抽取出来放在template上面，把绑定的事件放在temlpate里面的元，这样做可以使HTML文档结构更加清晰，还可以改善一个标签名+多个属性后标签过长的情况</tips>
+				<tips class="comment">在程序运行之后，“template”标签并不会被渲染到页面上。这两种语法结构并没有功能上的差异，可以将“v-if”、“v-show”、“v-for”等指令抽取出来放在template上面，把绑定的事件放在temlpate里面的标签上，这样做可以使HTML文档结构更加清晰，还可以改善一个标签名+多个属性后标签过长的情况</tips>
 			</section>
 
 			<section id="app-5" style="height: 332px;">
 				<h2 class="section_h2">#app-5：动态条件渲染</h2>
 				<form class="form-group">
 					<label class="checkbox-inline" v-for="checkbox in hobbys">
-						<input name="hobby" type="checkbox" :value="checkbox.name" v-model="checkbox.show" :checked="checkbox.show">
+						<input name="hobby" type="checkbox" v-model="checkbox.show" :checked="checkbox.show">
 						<span>{{checkbox.name}}</span>
 					</label>
 				</form>
@@ -127,26 +127,27 @@
 			</section>
 
 			<section id="app-6">
-				<h2 class="section_h2">#app-6：逻辑判断渲染</h2>
+                <h2 class="section_h2">#app-6：逻辑判断渲染</h2>
+                
 				<form class="form-group">
 					<label class="checkbox-inline" v-for="rdo in types">
-						<input name="hobby" type="radio" v-model="selectItem" :value="rdo" v-if="rdo === '汽车'" checked>
-						<input name="hobby" type="radio" v-model="selectItem" :value="rdo" v-else>
+						<input name="hobby" type="radio" v-model="selectItem" :value="rdo">
 						<span>{{rdo}}</span>
 					</label>
-				</form>
-				<div class="album" v-if="selectItem === '萌宠'">
-					<img :style="imgStyle" v-for="url in albums.pet" :src="url"/>
-				</div>
-				<div class="album" v-else-if="selectItem === '风景'">
-					<img :style="imgStyle" v-for="url in albums.scenery" :src="url"/>
-				</div>
-				<div class="album"  v-else-if="selectItem === '汽车'">
-					<img :style="imgStyle" v-for="url in albums.car" :src="url"/>
-				</div>
-				<div class="album" v-else>
-					<img :style="imgStyle" v-for="url in albums.girl" :src="url"/>
-				</div>
+                </form>
+                
+                <div class="album" v-if="selectItem === '萌宠'">
+                    <img :style="imgStyle" v-for="url in albums.pet" :src="url"/>
+                </div>
+                <div class="album" v-else-if="selectItem === '风景'">
+                    <img :style="imgStyle" v-for="url in albums.scenery" :src="url"/>
+                </div>
+                <div class="album"  v-else-if="selectItem === '汽车'">
+                    <img :style="imgStyle" v-for="url in albums.car" :src="url"/>
+                </div>
+                <div class="album" v-else>
+                    <img :style="imgStyle" v-for="url in albums.girl" :src="url"/>
+                </div>
 				<tips class="comment">该示例实现的几个关键：摆脱DOM操作的思想束缚、运用数据驱动模式思维、“v-if”、““v-else-if”和“v-else”的理解和使用、表单中“v-model”和“:value”的关系、“v-for”的使用。如果对这几点都已经理解得比较好，该示例就比较容易看懂了。</tips>
 			</section>
 
