@@ -11,6 +11,9 @@
 table.table th, table.table td {
     font-size: 20px;
 }
+table.table th, table.table td:last-child {
+    white-space: nowrap;
+}
 table.table button.btn {
     font-size: 18px;
     padding: 4px 16px;
