@@ -72,6 +72,23 @@
                 <tips class="comment">Vue的事件不同于原生JS事件的地方在于：“事件对象”不是事件函数参数括号自带的变量值，而是必须要手动声明的，而且声明的名称必须是“$event”这个对象值。当然除了像示例中组件定义tamplate内部HTML的“componentEvent($event)”事件这样直接传入该事件对象直接，也可以传入该对象的某个属性，如“eventName($event.keyCode)、eventName($event.target.tagName)”等</tips>
             </section>
 
+            <section id="app-4">
+                    <h2 class="section_h2">#app-4：事件修饰符</h2>
+                    <event-modifier></event-modifier>
+    
+                    <tips class="comment">除了示例中出现的“prevent”修饰符以外，Vue还提供了以下事件修饰符：
+                        <ul>
+                            <li>stop：阻止单击事件传播，即阻止冒泡</li>
+                            <li>capture：添加事件监听器时使用事件捕获模式，即元素自身触发的事件先在当前元素处理，然后才交由内部元素进行处理</li>
+                            <li>self：事件只在当前元素触发，并不会向下传播</li>
+                            <li>once：点击事件将只会触发一次</li>
+                        </ul>
+                        <p>事件修饰符可以采用链式的写法，像这样：</p>
+                        <p>&lt;!-- 同时阻止冒泡和默认事件 --&gt;
+                            &lt;a v-on:click.stop.prevent="doThat"&gt;&lt;/a&gt;</p>
+                    </tips>
+                </section>
+
 		</article>
 	</main>
 

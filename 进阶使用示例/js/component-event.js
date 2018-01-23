@@ -100,5 +100,33 @@ Vue.component('component-event', {
 });
 const app3 = new Vue().$mount('#app-3');
 
-
-
+/**** 示例-4 ****/
+Vue.component('event-modifier', {
+    template: `
+        <div>
+            <p>
+                <a href="https://www.baidu.com" target="_blank">可以打开百度</a>
+            </p>
+            <p>
+                <a href="https://www.baidu.com" target="_blank" @click.prevent>打不开百度</a> 
+            </p>
+            <p>
+                <a href="https://www.baidu.com" target="_blank" @click.prevent="taunt">不仅打不开百度，还会被嘲讽</a>
+            </p>
+            
+        </div>
+    `,
+	data: function () {
+		return {
+			num: 0
+		}
+	},
+	methods: {
+		taunt: function () {
+			alert('哈哈哈，打不开吧！！！')
+		}
+	}
+});
+const app4 = new Vue({
+	el: '#app-4'
+});
