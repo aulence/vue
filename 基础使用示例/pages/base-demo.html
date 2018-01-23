@@ -37,7 +37,7 @@
 					<label>系列：</label>
 					<select v-model="newRole.series" class="form-control">
 						<template v-for="value in seriesDefined">
-							<option v-html="value"></option>
+							<option>{{ value }}</option>
 						</template>
 					</select>
 				</div>
@@ -45,7 +45,7 @@
 					<label>擅长：</label>
 					<select v-model="newRole.strongPoint" class="form-control">
 						<template v-for="value in strongPointDefined">
-							<option v-html="value"></option>
+							<option>{{ value }}</option>
 						</template>
 					</select>
 				</div>
