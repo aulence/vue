@@ -39,9 +39,9 @@ const app1 = new Vue({
 // 定义一个基本组件
 Vue.component('base-component',{
 	props: ['content'],
-	// template: '<div>{{dataTxt}}</div>',
+	template: '<div>{{dataTxt}}</div>',
 	// 尝试解开下面template注释，并将上面template注释观察
-	template: '<div>{{content}}</div>',
+	// template: '<div>{{content}}</div>',
 	// 在组件内部的data属性只能是一个函数，并保证其有一个对象作为返回值
 	data() {
 		// 。。。各种操作
@@ -221,7 +221,23 @@ const app7 = new Vue({
 /**** 示例-8 ****/
 Vue.component('check-component', {
 	props: {
-		propString: String
+        // 只允许为字符串类型
+        propString: String,
+
+        // 同时允许为字符串和数值型
+        // propString: [String, Number]
+
+        // 类型为字符串，且必须传值
+        // propString: {
+        //     type: String,
+        //     required: true
+        // },
+
+        // 类型为字符串，未传值时默认值为“默认字符串”
+        // propString: {
+        //     type: String,
+        //     default: '默认字符串'
+        // }
 	},
 	template: `<div>{{ propString }}</div>`
 });
@@ -236,37 +252,3 @@ const app8 = new Vue({
 		this.smallHead = this.$options.el;
 	}
 });
-
-/**** 示例-9 ****/
-Vue.component('button-calc-add', {
-	template: `<button type="button" @click="addSelf(1)" class="btn btn-primary">{{ num }}</button>`,
-	data: function () {
-		return {
-			num: 0
-		}
-	},
-	methods: {
-		addSelf: function (num) {
-			this.num += num;
-			// 触发子组件上绑定的“视图模型”（Vue示例的）部分的calcResult事件
-			this.$emit('add-self');
-		}
-	}
-});
-const app9 = new Vue({
-	el: '#app-9',
-	data: {
-		res: 0
-	},
-	methods: {
-		calcResult: function () {
-			this.res += 1
-		}
-	},
-	created: function () {
-		this.smallHead = this.$options.el;
-	}
-});
-
-
-

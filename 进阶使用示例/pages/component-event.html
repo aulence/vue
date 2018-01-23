@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Vue组件事件</title>
+	<link rel="shortcut icon" href="../../source/favicon.ico">
+	<link rel="bookmark" href="../../source/favicon.ico">
+	<link rel="stylesheet" href="../plugin/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		#app-2 span{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.resStyle {
+			padding: 0 12px;
+			background-color: #eb981e;
+			border: 1px solid #9d6416;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 32px;
+			line-height: 45px;
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class="breadcrumb">
+				<li><a href="../index.html">首页</a></li>
+				<li class="active">Vue组件事件</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<article>
+            <h1>Vue组件事件</h1>
+            
+            <section id="app-1">
+                <h2 class="section_h2">#app-1：双向数据绑定实现的本质也是通过事件</h2>
+                <div>
+                    <p>之前我们使用过“v-model”来实现过数据的双向绑定，向这样的代码：</p>
+                    <p>{{ normal }}</p>
+                    <p>但实际上它是以下代码的“语法糖”：</p>
+                    <p>{{ actually }}</p>
+                </div>
+
+                <tips class="comment">语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·兰丁发明的一个术语，指计算机语言中添加的某种语法，这种语法对语言的功能没有影响，但是更方便程序员使用。语法糖让程序更加简洁，有更高的可读性。[by：<a href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E6%B3%95%E7%B3%96" target="_blank">维基百科</a>]</tips>
+            </section>
+
+			<section id="app-2">
+				<h2 class="section_h2">#app-2：自定义事件的触发器</h2>
+				<button-calc-add @add-self="calcResult"></button-calc-add>
+				<span>+</span>
+				<button-calc-add @add-self="calcResult"></button-calc-add>
+				<span>=</span>
+				<span class="resStyle">{{res}}</span>
+
+				<tips class="comment">示例中视图上的“add-self”为事件的监听器($on)，而组件的methods对象内事件的“emit”为事件的触发器（$emit）。
+                    <p>对于组件“button-calc-add”来讲，它并不知道父组件会做什么事情，它只报告内部发生的事件，只是通过emit触发了事件（也可以叫做发送）让父组件环境对应的监听器“add-self”知晓，而“add-self”这个监听器也会去做自己该做的事情。</p>
+                    <p>该示例看似功能简单，但却体现了组件、数据模型、视图、视图模型之间的复杂关系，读懂该例子对于理解组件间的通讯很有帮助。</p>
+                </tips>
+            </section>
+            
+            <section id="app-3">
+                <h2 class="section_h2">#app-3：组件内的事件对象</h2>
+                <component-event></component-event>
+
+                <tips class="comment">Vue的事件不同于原生JS事件的地方在于：“事件对象”不是事件函数参数括号自带的变量值，而是必须要手动声明的，而且声明的名称必须是“$event”这个对象值。当然除了像示例中组件定义tamplate内部HTML的“componentEvent($event)”事件这样直接传入该事件对象直接，也可以传入该对象的某个属性，如“eventName($event.keyCode)、eventName($event.target.tagName)”等</tips>
+            </section>
+
+		</article>
+	</main>
+
+	<script src="../plugin/vue.js"></script>
+	<script src="../js/component-event.js"></script>
+</body>
+</html>

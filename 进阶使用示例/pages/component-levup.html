@@ -64,10 +64,10 @@
 
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：再从基础认识组件</h2>
-				<!-- <base-component></base-component> -->
+				<base-component></base-component>
 				<!-- 尝试注释掉上面的组件，并解开下面组件的注释 -->
-				<base-component :content='dataTxt'></base-component>
-				<base-component content='这是一个显示文本的基本组件 -- by:child-component'></base-component>
+				<!-- <base-component :content='dataTxt'></base-component>
+				<base-component content='这是一个显示文本的基本组件 -- by:child-component'></base-component> -->
 				
 				<tips class="comment">该示例展现了一个组件的三种最基本形态。找到对应HTML和JS代码部分，按注释说明进行操作，然后进入浏览器刷新查看效果，从而思考对Vue组件的基本认识</tips>
 			</section>
@@ -122,11 +122,13 @@
 				<!-- 这里需要注意组件属性的两种命名的转换，即组件属性中的camelCased（驼峰式）命名在HTML中要转换为kebab-case（连线式）命名，否则将会出现Vue的警告，功能也会失效 -->
 				<child-component communicate="这样组件就可以独立了" style-prop="color:#239feb; font: 36px '华文隶书','隶书','宋体'"></child-component>
 
-				<tips class="comment">本节主要体现的是如何通过自定义属性（不带v-bind的情况）去实现子组件的解耦，并且在子组件上省略一些父组件上已经定义好的属性特征。</tips>
+				<tips class="comment">本节主要体现的是如何通过自定义属性（不带v-bind的情况）去实现子组件的解耦，并且在父组件环境上省略一些子组件组件上已经定义好的属性特征。如该示例中的第一个父组件环境的组件就省略了在父组件上提供的“styleProp”属性，组件编译过程仍然正常执行。
+                    <p>该示例中要注意对应的JS源码中的props属性内的“styleProp”及视图中“style-prop”的对应。因为HTML是不区分大小写的，所以在HTML视图中无论是标签名还是属性名都应该一律使用小写字母，当JS为全大写字母或者使用驼峰命名时，在HTML中都应该使用小写，如果遇到驼峰命名的变量，在HTML应该转换为连线式的命名方式，在Vue的内部会自动进行转换对应</p>
+                </tips>
 			</section>
 
 			<section id="app-7">
-				<h2 class="section_h2">{{smallHead}}：通过组件属性来实现属性的动态双向数据绑定</h2>
+				<h2 class="section_h2">{{smallHead}}：通过父组件环境上的组件的属性传值给子组件，从而实现数据的动态双向数据绑定</h2>
 				<input type="text" class="form-control" v-model="parentMsg1"/>
 				<bind-component 
 					:parent-message="parentMsg1"
@@ -145,18 +147,19 @@
 				<!-- 尝试修改组件属性的值，可选值有：str（字符串）、num（数字）和bool（布尔值）,然后观察浏览器控制台 -->
 				<check-component :prop-string="str"></check-component>
 
-				<tips class="comment">进入对应该示例对应的HTML部分，将“:prop-string”属性的值按照注释部分提供的几个值进行修改，并在每次修改之后观察控制台的输出结果（值为“str”时不会有输出），然后通过JS文件对应部分理解控制台输出结果的原因。注意，如果页面有配置“Vue.config.silent”属性，请确保该属性的值为“false”，否则JS部分的验证将无效。</tips>
-			</section>
-
-			<section id="app-9">
-				<h2 class="section_h2">{{smallHead}}：自定义事件的触发器</h2>
-				<button-calc-add @add-self="calcResult"></button-calc-add>
-				<span>+</span>
-				<button-calc-add @add-self="calcResult"></button-calc-add>
-				<span>=</span>
-				<span class="resStyle">{{res}}</span>
-
-				<tips class="comment">该示例看似功能简单，但却体现了组件、数据模型、视图、视图模型之间的复杂关系，读懂该例子对于理解组件间的通讯很有帮助。</tips>
+				<tips class="comment">进入对应该示例对应的HTML部分，将“:prop-string”属性的值按照注释部分提供的几个值进行修改，并在每次修改之后观察控制台的输出结果（值为“str”时不会有输出），然后通过JS文件对应部分理解控制台输出结果的原因。注意，如果页面有配置“Vue.config.silent”属性，请确保该属性的值为“false”，否则JS部分的验证将无效。
+                    <p>记住，在大型的团队项目中，总是建议将组件内的“props”定义为一个对象形式，并指定数据类型，更大程度地避免组件传值类型的不确定性。</p>
+                    <p>对props限制的类型有（首字母必须大写）：</p>
+                    <ul>
+                        <li>String</li>
+                        <li>Number</li>
+                        <li>Boolean</li>
+                        <li>Function</li>
+                        <li>Object</li>
+                        <li>Array</li>
+                        <li>Symbol</li>
+                    </ul>
+                </tips>
 			</section>
 
 		</article>
