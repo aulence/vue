@@ -149,8 +149,8 @@ Vue.component('data-component', {
 	template: `<button type="button" class="btn mr-20" style="padding: 6px 20px" @click="count += 1">{{ count }}</button>`,
 	data() {
 		return {
-			count: 0
-		}
+            count: 0
+        };
 	}
 });
 const app5 = new Vue({
@@ -194,10 +194,16 @@ const app6 = new Vue({
 /**** 示例-7 ****/
 Vue.component('bind-component', {
 	props: ['parentMessage'],
-	template: `<div @click="showText">{{ parentMessage }}</div>`,
+    template: `<div @click="showText">{{ parentMessage }}</div>`,
+    data() {
+        return {
+            postValue1: "ABC",
+            postValue2: "是英文字母",
+        }
+    },
 	methods: {
 		showText() {
-			this.$emit('show-text');
+			this.$emit('show-text', this.postValue1, this.postValue2);
 		}
 	}
 });
@@ -206,14 +212,17 @@ const app7 = new Vue({
 	data: {
 		parentMsg1: '修改数据也会反应到父组件上',
 		parentMsg2: '但对同一个组件的不同数据是不会产生影响的（可以点击的文本）',
-		setNormal: 'color:#2396fd;cursor:pointer;text-decoration:underline;'
+        setNormal: 'color:#2396fd;cursor:pointer;text-decoration:underline;',
+        // 等待接收子组件传过来的两个值通过事件进行合并
+        parentData: ''
 	},
 	created: function () {
 		this.smallHead = this.$options.el;
 	},
 	methods: {
-		showVMData() {
-			alert(this.parentMsg2);
+		showVMData(pv1,pv2) {
+            this.parentData = pv1 + pv2;
+			alert(this.parentData);
 		}
 	}
 });
