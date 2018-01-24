@@ -45,7 +45,7 @@
 					<input
 						class="form-control"
 						v-model="newPoetryText"
-						@keyup.enter="addNewPoetry"
+						@keydown.enter="addNewPoetry"
 						placeholder="添加内容后按下Enter键"
 					>
 					<ul class="mt-10">
@@ -71,7 +71,6 @@
 				
 				<tips class="comment">该示例展现了一个组件的三种最基本形态。找到对应HTML和JS代码部分，按注释说明进行操作，然后进入浏览器刷新查看效果，从而思考对Vue组件的基本认识</tips>
 			</section>
-
 			<section id="app-3">
 				<h2 class="section_h2">#app-3：通过一个外部对象创建局部组件</h2>
 				<local-component-first 
