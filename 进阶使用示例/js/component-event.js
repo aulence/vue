@@ -29,7 +29,7 @@ Vue.component('button-calc-add', {
 			// 触发子组件上绑定的“视图模型”（Vue示例的）部分的calcResult事件
 			this.$emit('add-self');
 		}
-	}
+    }
 });
 const app2 = new Vue({
 	el: '#app-2',
@@ -66,7 +66,7 @@ Vue.component('component-event', {
     `,
 	data: function () {
 		return {
-            'inputLong': 'width: 480px;',
+            inputLong: 'width: 480px;',
             shiftKey: '',
             keyName: '',
             keyCode: '',
@@ -116,11 +116,6 @@ Vue.component('event-modifier', {
             
         </div>
     `,
-	data: function () {
-		return {
-			num: 0
-		}
-	},
 	methods: {
 		taunt: function () {
 			alert('哈哈哈，打不开吧！！！')
