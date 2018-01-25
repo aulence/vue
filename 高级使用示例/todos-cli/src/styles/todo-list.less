@@ -61,14 +61,31 @@ article {
                 overflow: hidden;
                 white-space: nowrap;
             }
+            &.setTime, &.deleItem {
+                position: absolute;
+            }
             &.setTime {
                 width: 178px;
-                position: absolute;
                 right: 12px;
                 text-align: right;
                 font-size: 0.8rem;
                 color: #888888;
             }
+            &.deleItem {
+                width: 32px;
+                right: -32px;
+                text-align: center;
+                font-size: 32px;
+                cursor: pointer;
+                color: #999999;
+                display: none;
+                &:hover {
+                    color: #e45454;
+                }
+            }
+        }
+        &:hover > .deleItem {
+            display: inline-block;
         }
     }
 }

@@ -32,6 +32,9 @@ export default {
         },
         swithState(index) {
             this.todoList[index].checked = !this.todoList[index].checked;
+        },
+        deleItem(index) {
+            this.todoList.splice(index,1);
         }
     },
     watch: {

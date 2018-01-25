@@ -10,6 +10,7 @@
                     <i class="icon icon-checkbox-no" v-else @click="swithState(index)"></i>
                     <span class="content" :class="{complete:item.checked}" :title="item.content">{{item.content}}</span>
                     <span class="setTime">{{item.nowTime}}</span>
+                    <span class="deleItem" @click="deleItem(index)">&times;</span>
                 </li>
             </ul>
         </article>
