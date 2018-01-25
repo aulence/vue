@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
+    <div class="todos">
         <article>
             <h1>待办事项</h1>
             <input class="todo-input" type="text" v-model="todo" @keyup.enter="createTodo" @keyup.up="getPrevVal" placeholder="请输入待办事项后Enter键">
@@ -16,52 +16,8 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "TodosList",
-        data() {
-            return {
-                todo: "",
-                todoList: [],
-                prevContent: ''
-            };
-        },
-        computed: {
-            hasContent: function() {
-                if(this.todoList.length === 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },
-        methods: {
-            createTodo() {
-                const nowTime = new Date().toLocaleString();
-                const newTodo = {
-                    content: this.todo,
-                    checked: false,
-                    nowTime
-                }
-                this.todoList.push(newTodo);
-                this.todo = "";
-            },
-            getPrevVal() {
-                this.todo = this.prevContent;
-            },
-            swithState(index) {
-                this.todoList[index].checked = !this.todoList[index].checked;
-            }
-        },
-        watch: {
-            todo(nowVal, oldVal) {
-                this.prevContent = oldVal;
-            }
-        }
-    };
-</script>
+<script src="../scripts/todos.js"></script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
     @import "../styles/style.less";
     @import "../styles/todo-list.less";
