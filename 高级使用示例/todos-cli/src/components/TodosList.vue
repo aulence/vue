@@ -4,7 +4,7 @@
             <h1>待办事项</h1>
             <input class="todo-input" type="text" v-model="todo" @keyup.enter="createTodo" @keyup.up="getPrevVal" placeholder="请输入待办事项后Enter键">
             <ul class="todo-list">
-                <li v-if="hasContent" class="noContent">-- 尚未输入待办事项 --</li>
+                <li v-if="notContent" class="noContent">-- 尚未输入待办事项 --</li>
                 <li v-for="(item, index) in todoList" :key="item.id">
                     <i class="icon icon-checkbox-yes" v-if="item.checked" @click="swithState(index)"></i>
                     <i class="icon icon-checkbox-no" v-else @click="swithState(index)"></i>
