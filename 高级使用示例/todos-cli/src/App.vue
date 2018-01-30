@@ -1,6 +1,7 @@
 <template>
     <div id="app">
-        <todos-list></todos-list>
+        <!-- <todos-list></todos-list> -->
+        <TodosList/>
     </div>
 </template>
 
