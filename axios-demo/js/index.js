@@ -53,8 +53,50 @@ $.get('data/tea-info.json').then(
 	}
 );
 
+/* axios通过不同参数向后台发送GET请求 */
+// 允许的参数有："pikachu"、"penhuolong"、"miaowahua"
+axios.get('http://aulence.com/php/role-info.php?role=pikachu')
+.then((resp) => {
+    console.log('---------------------------------');
+	console.log('axios通过不同参数向后台发送GET请求：pikachu');
+	console.log(resp.data);
+    console.log('---------------------------------');
+});
+// 或者是
+axios.get('http://aulence.com/php/role-info.php', {
+    params: {
+        role: 'penhuolong'
+    }
+})
+.then((resp) => {
+    console.log('---------------------------------');
+    console.log('axios通过不同参数向后台发送GET请求：penhuolong');
+    console.log(resp.data)
+    console.log('---------------------------------');
+});
 
+/* axios向后台发送POST请求 */
+// 这里是通过表单获取到的键值对
+const userSignUpInfo = {
+    name: 'aulence',
+    tel: '18116657687',
+    pwd: '123456'
+}
+// 创建一个URL查询字符串对象
+const params = new URLSearchParams();
+// params.append('name','aulence');
+// params.append('tel','18116657687');
+// params.append('pwd','123456');
+for(let x in userSignUpInfo) {
+    params.append(x, userSignUpInfo[x]);
+}
 
+axios.post('http://aulence.com/php/user-signup.php', params).then((resp) => {
+    console.log('---------------------------------');
+    console.log('axios向后台发送POST请求');
+    console.log(resp.data);
+    console.log('---------------------------------');
+});
 
 
 
