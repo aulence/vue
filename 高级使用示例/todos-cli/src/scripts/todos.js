@@ -8,7 +8,7 @@ export default {
         };
     },
     computed: {
-        hasContent: function() {
+        notContent: function() {
             if(this.todoList.length === 0) {
                 return true;
             } else {
