@@ -17,7 +17,6 @@
                             name="bookCkb" 
                             type="checkbox" 
                             v-model="book.selection"
-                            :value="book.name"
                             @change="$emit('checkChange')"
                         />
                     </td>

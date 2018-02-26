@@ -6,7 +6,7 @@ import Vue from 'vue'
 import App from './App'
 // 路由配置文件导入
 import router from './router'
-import BootstrapCSS from 'bootstrap-css'
+import 'bootstrap-css'
 // DOM操作文件导入
 import domCtrl from './scripts/dom-ctrl'
 
