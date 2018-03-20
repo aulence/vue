@@ -99,6 +99,7 @@ const app5 = new Vue({
     updated: function() {
         if(this.run) {
             this.$refs.hookElement.style.fontSize = "32px";
+            this.$refs.hookElement.style.color = "#08f";
         } else {
             alert('请确保数据中包含“文本内容”字样！');
         }

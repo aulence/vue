@@ -26,7 +26,7 @@
 
 			<section id="app-1">
 				<h2 class="section_h2">#app-1：一个简单的私有组件</h2>
-                <comp-item :data="txtData"></comp-item>
+                <comp-item v-bind:data="txtData"></comp-item>
                 <tips class="comment">这里的“comp-item”就是挂载到当前视图模型（VM，即View Model）上的子组件，而VM要向组件传递数据是通过视图上的属性值“txtData”向组件内的“data”属性实现的，而在组件内部，需要一个“props”属性定义这个属性，这样一来，在组件内部就可以通过模版语法使用它的VM载体来定义数据了。这样的实现灵感来至于React，而这种思维模式叫做“组件化编程思维”。
                     <p>不过在这里不理解没有关系，在我们的Vue进阶使用实例里面会进行详细说明。现在我们只需要知道何为组件，组件的表现形式是什么样的即可。</p>
                     <p>组件化编程思维是现在JavaScript框架（如Angular、React还有我们的主角Vue）的主要思维模式，它的设计遵从软件设计模式原则。（软件设计模式的六大原则：单一职责、里式替换、依赖倒置、接口隔离、迪米特法则、开闭）</p>
