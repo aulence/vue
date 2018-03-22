@@ -100,7 +100,13 @@ let app6 = new Vue({
 	computed: {
 		fullName: function () {
 			return this.firstName + ' ' + this.lastName
-		}
+        }
+        // 也可以写成
+        /* fullName: {
+            get: function() {
+                return this.firstName + ' ' + this.lastName
+            }
+        } */
 	}
 });
 
@@ -166,6 +172,6 @@ let app8 = new Vue({
 					});
 			},
 		// 输入停止后多少毫秒执行函数
-		800)
+		1800)
 	}
 })
