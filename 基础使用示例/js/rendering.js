@@ -65,7 +65,7 @@ const app5 = new Vue({
 			{ name: '游戏', show: false },
 			{ name: '看书', show: true },
 			{ name: '美食', show: false },
-			{ name: '运动', show:  true },
+			{ name: '运动', show: true },
 			{ name: '电影', show: false },
 		]
 	},
@@ -79,7 +79,7 @@ const app5 = new Vue({
 const app6 = new Vue({
 	el: '#app-6',
 	data: {
-		selectItem: '风景',
+		selectItem: '萌宠',
 		types: ['萌宠','风景','汽车','美女'],
 		imgStyle: 'height: 160px; margin-right: 10px; border-radius: 15px',
 		albums: {

@@ -41,9 +41,10 @@
 					</thead>
 					<tbody>
 						<tr v-for="tr in listRender_obj">
-							<td>{{ tr.star }}</td>
-							<td>{{ tr.title }}</td>
-                            <td>{{ tr.name }}</td>
+                            <!-- <td>{{ tr.star }}</td>
+                                <td>{{ tr.title }}</td>
+                                <td>{{ tr.name }}</td> -->
+                            <td v-for="td in tr">{{ td }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -84,7 +85,7 @@
 						<tr v-for="(value, key, index) in roleInfo">
 							<td>{{index}}</td>
 							<td>{{key}}</td>
-							<td>{{value}}</td>
+                            <td>{{value}}</td>
 						</tr>
 					</tbody>
 				</table>

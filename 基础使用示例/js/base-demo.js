@@ -106,3 +106,28 @@ let vm = new Vue({
 	}
 });
 
+
+/**
+ * 到目前为止我们接触的VM主要的配置项包括
+ */
+/* new Vue({
+    // 基本配置
+    el: '#app',         // 选择器
+    data: {},           // 数据
+    computed: {},       // 计算属性
+    methods: {},        // 事件
+    // 8个钩子函数
+    beforeCreate() {},  // 数据创建前
+    created() {},       // 数据创建后
+    beforeMount() {},   // 视图元素生成前
+    mounted() {},       // 视图元素生成后
+    beforeUpdate() {},  // 数据在更新的时候之前的操作
+    updated() {},       // 数据在更新的时候之后的操作
+    beforeDestroy() {}, // VM（视图模型）在销毁操作执行的时候之前的操作
+    destroyed() {},     // VM在销毁操作执行的时候之后的操作
+    // 其它配置
+    filters: {},        // 过滤器
+    watch: {},          // 检测器
+    components: {}      // 组件
+}); */
+
