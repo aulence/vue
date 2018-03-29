@@ -26,6 +26,7 @@ const app2 = new Vue({
 const app3 = new Vue({
 	el: '#app-3',
 	data: {
+        getHobby: [],
 		hobbyList: [
 			{ buttonName: '编程', activeStatus: true },
 			{ buttonName: '游戏', activeStatus: true },
@@ -36,10 +37,22 @@ const app3 = new Vue({
 		]
 	},
 	methods: {
+        // 选中效果
 		toggleClass: function (index) {
 			// 通过这样的方式来实现状态的切换（true/false）是比较常用的最简单方式
-			this.hobbyList[index].activeStatus = !this.hobbyList[index].activeStatus;
-		}
+            this.hobbyList[index].activeStatus = !this.hobbyList[index].activeStatus;
+            this.getHobby = this.getHobbyMethod(this.hobbyList);
+        },
+        // 返回选中项数组的方法
+        getHobbyMethod(arr) {
+            const hobby = [];
+            for(let x in arr) {
+                if(arr[x].activeStatus) {
+                    hobby.push(arr[x].buttonName);
+                }
+            }
+            return hobby;
+        }
 	}
 });
 

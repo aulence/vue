@@ -48,7 +48,7 @@ Vue.component('base-component',{
 		return {
 			dataTxt: '这是一个显示文本的基本组件 -- by:component'
 		}
-	}
+    }
 });
 const app2 = new Vue({
 	el: '#app-2',
@@ -110,19 +110,24 @@ const app3 = new Vue({
 	// 这里注意components后面多了一个“s”
 	components: {
 		'local-component-first': externalComponent_first,
-		'local-component-second': externalComponent_second
+        'local-component-second': externalComponent_second
 	}
 });
 
 /**** 示例-4 ****/
 Vue.component('table-row', {
 	props: ['prop'],
-	template: `
+	/* template: `
 		<tr>
 			<td>{{prop.name}}</td>
 			<td>{{prop.country}}</td>
 			<td>{{prop.spiritAnimal}}</td>
 			<td>{{prop.skill}}</td>
+		</tr>
+    ` */
+    template: `
+		<tr>
+			<td v-for="td in prop">{{td}}</td>
 		</tr>
 	`
 });

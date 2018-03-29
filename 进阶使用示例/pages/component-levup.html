@@ -37,8 +37,7 @@
 
 	<main>
 		<article>
-			<h1>Vue组件进阶</h1>
-
+            <h1>Vue组件进阶</h1>
 			<section id="app-1">
 				<h2 class="section_h2">#app-1：通过该例子来再次认识组件</h2>
 				<div>
@@ -82,7 +81,7 @@
 					style="color:#e0658e"
 					title="外部模版定义-2"
 					content="这是一个外部对象，为私有组件提供显示现在时间的模版"
-				></local-component-second>
+                ></local-component-second>
 				
 				<tips class="comment">该示例展示了在同一个Vue实例里引用多个组件的用法。简略地体现了组件化编程的思想--一个页面的内容是有一个或者多个可配置的组件“拼装”而成的，而组件间相互独立，结构清晰，分工明确，可以实现各自的功能。不会产生传统页面变量和作用域难以管理的问题。</tips>
 			</section>
@@ -144,7 +143,7 @@
 			<section id="app-8">
 				<h2 class="section_h2">{{smallHead}}：当Vue的组件在团队中使用时，属性的数据类型验证提示</h2>
 				<!-- 尝试修改组件属性的值，可选值有：str（字符串）、num（数字）和bool（布尔值）,然后观察浏览器控制台 -->
-				<check-component :prop-string="str"></check-component>
+				<check-component></check-component>
 
 				<tips class="comment">进入对应该示例对应的HTML部分，将“:prop-string”属性的值按照注释部分提供的几个值进行修改，并在每次修改之后观察控制台的输出结果（值为“str”时不会有输出），然后通过JS文件对应部分理解控制台输出结果的原因。注意，如果页面有配置“Vue.config.silent”属性，请确保该属性的值为“false”，否则JS部分的验证将无效。
                     <p>记住，在大型的团队项目中，总是建议将组件内的“props”定义为一个对象形式，并指定数据类型，更大程度地避免组件传值类型的不确定性。</p>
