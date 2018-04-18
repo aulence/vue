@@ -6,6 +6,9 @@
 /****************************************/
 /* 初始化 */
 /****************************************/
+* {
+    box-sizing: border-box;
+}
 html,body {
     margin: 0;
     padding: 0;
@@ -17,136 +20,23 @@ a:hover {
     color: #35495e;
 }
 button {
-    outline: none;
-}
-button.btn:focus, button.btn:active {
-    outline: none;
-}
-.list-group-item {
-    border-color: #aaaaaa;
-}
-/****************************************/
-/* 样式元件 */
-/****************************************/
-/* 外间距 */
-.ml-50 {
-    margin-left: 50px;
-}
-.ml-100 {
-    margin-left: 100px;
-}
-.mr-50 {
-    margin-right: 50px;
-}
-.mr-100 {
-    margin-right: 100px;
-}
-.mt-10 {
-    margin-top: 10px;
-}
-.mt-50 {
-    margin-top: 50px;
-}
-/* 宽度 */
-.w-164 {
-    width: 164px;
-}
-/* 主题色 */
-.bg-theme {
-    background-color: #41B883;
-    color: #ffffff;
-}
-/* 无效果列表 */
-.list-none {
-    list-style: none;
-    color: #666666;
-    position: relative;
-    left: -40px;
-}
-/* 字体控制 */
-.text-weight-normal, .text-weight-normal th, .text-weight-normal td {
-    font-weight: normal;
-}
-/* bootstrap表单控件重定义 */
-input.form-control, select.form-control {
-    height: auto;
-    font-size: 20px;
-}
-.checkbox-inline input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: -2px;
-}
-.checkbox-inline input[type="checkbox"],.checkbox-inline span {
-    vertical-align: middle;
-    display: inline-block;
-}
-/* 手型效果 */
-.pointer {
     cursor: pointer;
-    user-select: none;
 }
-.transion_0_3 {
-    transition-property: all;
-    transition-duration: 0.3s;
+input,select,button {
+    outline: none;
+    font: 18px "Microsoft Yahei",sans-serif;
 }
-.section_h2 {
-    font-size: 16px;
-    color: #999999;
-    margin-top: 10px;
-    margin-bottom: 10px;
+input,select {
+    min-width: 140px;
+    padding: 4px 6px;
+    border: 1px solid #999999;
 }
-.section_h3 {
-    font-size: 18px;
-    color: #666666;
-    margin-top: 36px;
-    margin-bottom: 12px;
+/* 细节布局 */
+.mt-10 {
+    margin-top: 20px;
 }
-.fz-24 {
-    font-size: 24px !important;
-}
-.fz-28 {
-    font-size: 28px !important;
-}
-.fz-30 {
-    font-size: 30px !important;
-}
-.fz-32 {
-    font-size: 32px !important;
-}
-.gif-img {
-    width: auto;
-    height: 256px;
-    background: #eeeeee url("../img/img-loader.jpg") center center no-repeat;
-    background-size: contain;
-    display: block;
-}
-/* 说明性注释 */
-tips.comment {
-    padding: 20px 10px;
-    background-color: #f4f6fa;
-    border: 1px solid #ddd;
-    border-left: 4px solid #ddd;
-    white-space: pre-line;
-    font-weight: lighter;
-    line-height: 1.6;
-    color: #666;
-    margin: 16px 0;
-    display: block;
-    clear: both;
-}
-tips.comment::before {
-    content: '<tips>:';
-    color: #a4bccc;
-    font: normal 20px sans-serif;
-    margin-right: 8px;
-}
-tips.comment p {
-    margin: 14px 0;
-}
-tips.comment p:last-child {
-    margin-bottom: 0;
+.mt-20 {
+    margin-top: 20px;
 }
 /****************************************/
 /* 细节设置 */
@@ -157,59 +47,65 @@ body {
     padding-bottom: 50px;
 }
 main {
-    width: 960px;
+    width: 640px;
     margin: 0 auto;
 }
-main article {
-    border: 1px solid #aaaaaa;
-    border-radius: 10px;
-    overflow: hidden;
-}
-main article h1, main section {
-    border-bottom: 1px solid #aaaaaa;
-}
-main article h1 {
-    padding: 10px 0;
-   /* background-color: #35495E;
-    color: #41B883;*/
-    background-color: #41B883;
-    color: #35495E;
+main > h1 {
     text-align: center;
-    line-height: 50px;
-    margin: 0;
+    margin-bottom: 24px;
 }
-main section {
+main > section {
+    padding: 12px;
     background-color: #fff;
-    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
 }
-main section:last-child {
-    border-bottom: none;
+main > section h2 {
+    margin: 0;
+    padding: 0;
 }
-main section ul li {
-    color: #2aa3e1;
+main section ul {
+    color: #11bc52;
+}
+section h2 + button {
+    margin: 10px 0;
 }
 
-input,select,textarea,button.btn {
-    font-size: 22px;
+/**** 表格样式 ****/
+.frag-table {
+    width: 100%;
+}
+.frag-table thead {
+    background-color: #3a3b3c;
+    color: #ffffff;
+}
+.frag-table, .frag-table th, .frag-table td {
+    border: 1px solid #acacac;
+    border-collapse: collapse;
+}
+.frag-table th, .frag-table td {
+    padding: 12px;
+    font-weight: normal;
+}
+.frag-table th {
+    font-size: 16px;
+}
+.frag-table td {
+    font-size: 18px;
+}
+.frag-table td img {
+    height: 72px;
 }
 
-/* 列表末尾删除按钮 */
-.li-delete {
-    padding: 0 10px;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    color: #999999;
+/**** 表单样式 ****/
+form > div {
+    padding-top: 20px;
 }
-.li-delete:hover {
-    color: #d67676;
+form label, label input {
+    display: inline-block;
 }
-.li-delete:active {
-    color: #b1441c;
-}
-.fade-enter-active, .fade-leave-active {
-transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-opacity: 0;
+form label {
+    width: 96px;
+    text-align: right;
 }

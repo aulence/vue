@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="author" content="Auelnce,aulence@foxmail.com">
+	<title>axios.js向后台传参</title>
+	<link rel="shortcut icon" href="../source/favicon.ico">
+    <link rel="bookmark" href="../source/favicon.ico">
+    <link rel="stylesheet" href="../plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <nav>
+        <ul class="breadcrumb">
+            <li><a href="../index.html">首页</a></li>
+            <li class="active">axios.js向后台传参</li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>axios.js向后台传参</h1>
+
+        <section>
+            <h2>使用GET方式发送不同的参数获得不同数据</h2>
+            <form class="mt-10">
+                <select id="petSelect">
+                    <option value="pikachu">皮卡丘</option>
+                    <option value="penhuolong">喷火龙</option>
+                    <option value="miaowahua">妙蛙花</option>
+                </select>
+                <button type="button" id="loadData-1">加载数据</button>
+            </form>
+            
+            <div id="petInfo" class="mt-20">
+                <div>
+                    <label>名称：</label>
+                    <span>----</span>
+                </div>
+                <div>
+                    <label>系列：</label>
+                    <span>----</span>
+                </div>
+                <div>
+                    <label>技能：</label>
+                    <span>----</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Axios使用POST方式向后台发送数据</h2>
+            <form name="userInfoForm" class="mt-10">
+                <div>
+                    <label>姓名：</label>
+                    <input name="name" type="text" placeholder="请输入您的姓名">
+                </div>
+                <div>
+                    <label>手机：</label>
+                    <input name="tel" type="tel" placeholder="请输入您的手机号">
+                </div>
+                <div>
+                    <label>密码：</label>
+                    <input name="pwd" type="password" placeholder="请输入您的密码">
+                </div>
+                <div style="margin-left: 108px">
+                    <button type="button" id="loadData-2">提交数据</button>
+                </div>
+            </form>
+            
+            
+        </section>
+        
+    </main>
+
+	<script src="../plugin/axios.min.js"></script>
+	<script src="../js/axios-param.js"></script>
+</body>
+</html>
