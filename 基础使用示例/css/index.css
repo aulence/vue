@@ -13,7 +13,7 @@ h1 {
 .vue-icon {
     width: 32px;
     height: 32px;
-    background: url("../../source/logo-32x32.png") no-repeat;
+    background: url("../img/logo-32x32.png") no-repeat;
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
