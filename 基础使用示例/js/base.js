@@ -3,14 +3,14 @@
  * 日期：2017/4/17
  **/
 
-let app1 = new Vue({
+const app1 = new Vue({
 	el: '#app-1',
 	data: {
 		message: '这是我希望在该标签输出的内容'
 	}
 });
 
-let app2 = new Vue({
+const app2 = new Vue({
 	el: '#app-2',
 	data: {
         title: '这是鼠标悬浮后提示的文本',
@@ -18,7 +18,7 @@ let app2 = new Vue({
 	}
 });
 
-let app3 = new Vue({
+const app3 = new Vue({
 	el: '#app-3',
 	data: {
 		show: true,
@@ -26,7 +26,7 @@ let app3 = new Vue({
 	}
 });
 
-let app4 = new Vue({
+const app4 = new Vue({
 	el: '#app-4',
 	data: {
         // 汽车信息
@@ -40,7 +40,7 @@ let app4 = new Vue({
 	}
 });
 
-let app5 = new Vue({
+const app5 = new Vue({
 	el: '#app-5',
 	data: {
 		content: '#app-5：原来的文本内容。'
@@ -60,7 +60,7 @@ let app5 = new Vue({
 	}
 });
 
-let app6 = new Vue({
+const app6 = new Vue({
 	el: '#app-6',
 	data: {
 		text: '数据双向绑定'
