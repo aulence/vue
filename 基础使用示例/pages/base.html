@@ -71,7 +71,7 @@
 				<h2 class="section_h2">#app-6：简易的双向数据绑定</h2>
 				<input v-model="text" type="text" class="form-control">
                 <span class="text-success">{{ text }}</span>
-                <tips class="comment">Vue的双向数据绑定的实现区别于AngularJS的脏治检测机制，Vue是用ES5提供的Object.defineProperty()方法来实现的。<br>此例中，模板语法内的“text”和在input的“v-model”的“text”值是同一个值。“v-model”指令实际上对应的是input的当前真实value值（和设置在标签上的value属性无关），当前value属性值发生变化后，数据模型内的text属性值也会“同步”更新，而数据模型内的数据值发生变化，那视图上的“text”值也随之同步了。</tips>
+				<tips class="comment">Vue的双向数据绑定的实现区别于AngularJS的脏治检测机制，Vue是用ES5提供的Object.defineProperty()方法来实现的。<br>此例中，模板语法内的“text”和在input的“v-model”的“text”值是同一个值。“v-model”指令实际上对应的是input的当前真实value值（和设置在标签上的value属性无关），当前value属性值发生变化后，数据模型内的text属性值也会“同步”更新，而数据模型内的数据值发生变化，那视图上的“text”值也随之同步了。</tips>
 			</section>
 
 		</article>

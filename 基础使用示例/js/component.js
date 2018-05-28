@@ -4,10 +4,10 @@
  **/
 
 /* 私有组件 */
-let app1 = new Vue({
+const app1 = new Vue({
     el: '#app-1',
     data: {
-        txtData: 'VM传递过来的数据'
+		txtData: 'VM传递过来的数据'
     },
 	components: {
 		'comp-item': {
@@ -22,12 +22,13 @@ let app1 = new Vue({
 
 /* 全局组件 */
 Vue.component('li-carinfo-item', {
-    // 属性“carprop”的值来至于对应视图的VM内的data属性内的数据
+    // 属性“carprop”的值来对应视图的VM内的data属性内的数据
 	props: ['carprop'],
 	template: '<li>{{ carprop.name }}</li>'
 });
+
 /* 全局组件--示例1 */
-let app2 = new Vue({
+const app2 = new Vue({
 	el: '#app-2',
 	data: {
 		high_carInfo: [
@@ -39,8 +40,9 @@ let app2 = new Vue({
 		]
 	}
 });
+
 /* 全局组件--示例2 */
-let app3 = new Vue({
+const app3 = new Vue({
 	el: '#app-3',
 	data: {
 		norm_carInfo: [
@@ -52,8 +54,9 @@ let app3 = new Vue({
 		]
 	}
 });
+
 /* 全局组件--示例3 */
-let app4 = new Vue({
+const app4 = new Vue({
 	el: '#app-4',
 	data: {
 		lowe_mbick: [
