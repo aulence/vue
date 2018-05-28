@@ -26,7 +26,7 @@ const app1 = new Vue({
 Vue.component('li-carinfo-item', {
     // 属性“carprop”的值来对应视图的VM内的data属性内的数据
 	props: ['carprop'],
-	template: '<li>{{ carprop.name }}</li>'
+	template: `<li>{{ carprop.name }}</li>`
 });
 
 /* 全局组件--示例1 */
