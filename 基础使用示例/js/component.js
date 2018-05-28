@@ -12,10 +12,12 @@ const app1 = new Vue({
 	components: {
 		'comp-item': {
             props: ['data'],
-			template: '<div>' +
-				'<p>我是自定义组件</p>' +
-				'<p>在这里可以写<em id="htmlColor" style="color:#f18c1d">HTML</em>代码，也可以嵌入“{{data}}”</p>' +
-            '</div>'
+			template: `
+				<div>
+					<p>我是自定义组件</p>
+					<p>在这里可以写<em id="htmlColor" style="color:#f18c1d">HTML</em>代码，也可以嵌入“{{data}}”</p>
+				</div>
+			`
         }
 	}
 });
