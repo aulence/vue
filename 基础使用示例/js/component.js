@@ -11,7 +11,6 @@ const app1 = new Vue({
     },
 	components: {
 		'comp-item': {
-            props: ['data'],
 			template: `
 				<div>
 					<p>我是自定义组件</p>

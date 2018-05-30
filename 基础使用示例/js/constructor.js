@@ -71,6 +71,7 @@ const app4 = new Vue({
 	// 钩子函数：VM实例替换视图后执行
 	mounted: function () {
         this.testString += "~~~"
+        console.log(this.$refs.hookElement);
         this.$refs.hookElement.style.cssText = `
             padding: 10px 12px;
             background-image: linear-gradient(179deg, rgb(222, 108, 251), rgb(83, 3, 103));
