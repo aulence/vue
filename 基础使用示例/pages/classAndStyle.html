@@ -27,9 +27,21 @@
 
 			<section id="app-1">
 				<h2 class="section_h2">#app-1：根据数据的布尔值添加class</h2>
-				<p :class="{'text-red':statusTrue, 'fz-34':statusTrue, 'text-underline':statusTrue}">红色的34像素字体，带下划线的段落</p>
-				<p :class="{'text-red':statusTrue, 'fz-34':statusFalse, 'text-underline':statusFalse}">红色字体的段落</p>
-				<p :class="{'text-red':statusFalse, 'fz-34':statusFalse, 'text-underline':statusFalse}">使用默认样式的段落</p>
+				<p :class="{
+					'text-red':statusTrue,
+					'fz-34':statusTrue,
+					'text-underline':statusTrue
+				}">红色的34像素字体，带下划线的段落</p>
+				<p :class="{
+					'text-red':statusTrue,
+					'fz-34':statusFalse,
+					'text-underline':statusFalse
+				}">红色字体的段落</p>
+				<p :class="{
+					'text-red':statusFalse,
+					'fz-34':statusFalse,
+					'text-underline':statusFalse
+				}">使用默认样式的段落</p>
 			</section>
 
 			<section id="app-2">
@@ -43,7 +55,7 @@
 				<h2 class="section_h2">#app-3：通过切换class绑定的布尔值添加/移除样式</h2>
 				<div class="hobbyList">
 					<ul>
-						<template  v-for="(hobby, index) in hobbyList">
+						<template v-for="(hobby, index) in hobbyList">
 							<li :class="{active:hobby.activeStatus}" @click="toggleClass(index)">{{hobby.buttonName}}</li>
 						</template>
 
