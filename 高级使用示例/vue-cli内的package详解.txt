@@ -1,0 +1,118 @@
+{
+    // 项目名称
+    "name": "use-store",
+    // 版本号
+    "version": "1.0.0",
+    // 项目描述
+    "description": "A Vue.js project",
+    // 作者名字
+    "author": "aulence",
+    // 是否私有
+    "private": true,
+    // 快捷脚本
+    "scripts": {
+        // 通过“npm run dev”启动，它使用webpack-dev-server工具启动热重载，即代码保存后不需要刷新浏览器也能事实预览效果。通过该命令不会在项目生成任何文件，所有构建出来的代码都是放在计算机内存里的，性能的开销会非常小
+        "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+        // 通过“npm start”启动，执行上一个脚本命令的内容
+        "start": "npm run dev",
+        // 通过“npm run build”将开发的项目编译打包进dist文件夹，供上线使用
+        "build": "node build/build.js"
+    },
+    // 生产环境的依赖
+    "dependencies": {
+        // 著名AJAX插件
+        "axios": "^0.17.1",
+        // 经典UI库
+        "bootstrap": "^3.3.7",
+        // 最炫最强大的图标库之一
+        "echarts": "^3.8.5",
+        // 经典的JS库
+        "jquery": "^3.2.1",
+        // Vue.js核心文件
+        "vue": "^2.5.2",
+        // Vue的路由插件
+        "vue-router": "^3.0.1"
+    },
+    // 开发环境的依赖
+    "devDependencies": {
+        // 它是postcss的插件用来解析CSS补充前缀，如-webkit-、-moz、-ms等
+        "autoprefixer": "^7.1.2",
+        // babel的核心，把js代码分析成ast ，方便各个插件分析语法进行相应的处理
+        "babel-core": "^6.22.1",
+        // 使项目运行使用Babel和webpack来传输js文件，使用babel-core提供的api进行转译
+        "babel-loader": "^7.1.1",
+        //避免编译输出中的重复，直接编译到build环境中
+        "babel-plugin-transform-runtime": "^6.22.0",
+        // 转为ES5，transform阶段使用到的插件之一
+        "babel-preset-env": "^1.3.2",
+        // ECMAScript第二阶段的规范
+        "babel-preset-stage-2": "^6.22.0",
+        // 用来在命令行输出不同颜色文字
+        "chalk": "^2.0.1",
+        // 拷贝资源和文件
+        "copy-webpack-plugin": "^4.0.1",
+        // webpack先用css-loader加载器去解析后缀为css的文件
+        "css-loader": "^0.28.0",
+        // 在不可用的浏览器中提供多填充以支持事件源
+        "eventsource-polyfill": "^0.9.6",
+        // 将打包在JS文件里面的文本资源（比如CSS）提取到单独文件中
+        "extract-text-webpack-plugin": "^3.0.0",
+        // 编译各种图片和字体图标，与url-loader用法类似，但不支持生成base64
+        "file-loader": "^1.1.4",
+        // 识别某些类别的Webpack错误和清理，聚合和优先排序，以提供更好的开发体验
+        "friendly-errors-webpack-plugin": "^1.6.1",
+        // 编译HTML文件，引入了静态资源（CSS和JS），可通过此项进行多页面的配置
+        "html-webpack-plugin": "^2.30.1",
+        // Less编译的核心文件
+        "less": "^2.7.3",
+        // 让Webpack能够识别文件后缀为“.less”的文件并使用lessc进行编译
+        "less-loader": "^4.0.5",
+        // 支持使用node发送跨平台的本地通知
+        "node-notifier": "^5.1.2",
+        // 优化压缩提取出的css文件（需配合CSS压缩插件一起使用）
+        "optimize-css-assets-webpack-plugin": "^3.2.0",
+        // 加载（loading）的插件
+        "ora": "^1.2.0",
+        // 查看进程端口
+        "portfinder": "^1.0.13",
+        // CSS后处理器——导入处理
+        "postcss-import": "^11.0.0",
+        // CSS后处理器——Webpack识别
+        "postcss-loader": "^2.0.8",
+        // 节点的UNIX命令rm-rf，强制删除文件或者目录的命令
+        "rimraf": "^2.6.0",
+        // 用来对特定的版本号做判断的
+        "semver": "^5.3.0",
+        // 使用它来消除shell脚本在UNIX上的依赖性，同时仍然保留其熟悉和强大的命令，即可执行Unix系统命令
+        "shelljs": "^0.7.6",
+        // JS压缩插件
+        "uglifyjs-webpack-plugin": "^1.1.1",
+        // 编译各种图片和字体图标，可将图片转化为base64，是“file-loader”的同类工具
+        "url-loader": "^0.5.8",
+        // 后缀为“.vue”单文件组件的Webpack加载器
+        "vue-loader": "^13.3.0",
+        // 后缀为“.vue”单文件组件内的样式处理编译器，会将组件内的样式分离合并到生成合并后的CSS里
+        "vue-style-loader": "^3.0.1",
+        // 将后缀为“.vue”单文件组件内的<template>的内容编译为JS的HTML模版
+        "vue-template-compiler": "^2.5.2",
+        // 世界上最好的自动化构建工具
+        "webpack": "^3.6.0",
+        // 可以在命令行输出编译后文件的大小
+        "webpack-bundle-analyzer": "^2.9.0",
+        // 热重载，并提供一个本地测试服务环境，“npm run dev”命令的核心工具插件
+        "webpack-dev-server": "^2.9.1",
+        // 可以合并多个Webpack文件，便于编写不同环境的配置文件
+        "webpack-merge": "^4.1.0"
+    },
+    // 指定node和npm版本的引擎
+    "engines": {
+        "node": ">= 4.0.0",
+        "npm": ">= 3.0.0"
+    },
+    // 限制了浏览器或者客户端需要什么版本才可运行
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}
