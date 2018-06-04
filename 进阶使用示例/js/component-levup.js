@@ -119,15 +119,20 @@ Vue.component('table-row', {
 	props: ['prop'],
 	/* template: `
 		<tr>
-			<td>{{prop.name}}</td>
-			<td>{{prop.country}}</td>
+			<td>{{prop.name | setName}}</td>
+			<td>{{prop.country | setDate}}</td>
 			<td>{{prop.spiritAnimal}}</td>
 			<td>{{prop.skill}}</td>
 		</tr>
-    ` */
+	`,
+	filters: {
+		setName(val) {
+			return '“' + val + '”';
+		}
+	}, */
     template: `
 		<tr>
-			<td v-for="td in prop">{{td}}</td>
+			<td v-for="td in prop">{{ td }}</td>
 		</tr>
 	`
 });
