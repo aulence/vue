@@ -27,7 +27,7 @@
 			<form class="createInfo">
 				<div class="form-group">
 					<label>序号：</label>
-					<input type="text" v-model="newRole.id" class="form-control">
+					<input type="text" v-model="newRole.id" class="form-control" :disabled="modifyStatus">
 				</div>
 				<div class="form-group">
 					<label>角色名：</label>
