@@ -13,6 +13,7 @@
                     <span class="deleItem" @click="deleItem(index)">&times;</span>
                 </li>
             </ul>
+            <div>还有 {{ noDone }} 项未完成</div>
         </article>
     </div>
 </template>

@@ -14,6 +14,15 @@ export default {
             } else {
                 return false;
             }
+        },
+        noDone() {
+            var counter = 0;
+            for(let x in this.todoList) {
+                if(!this.todoList[x].checked) {
+                    counter++;
+                }
+            }
+            return counter;
         }
     },
     methods: {
