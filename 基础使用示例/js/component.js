@@ -8,9 +8,10 @@ const app1 = new Vue({
     el: '#app-1',
     data: {
 		txtData: 'VM传递过来的数据'
-    },
+	},
 	components: {
 		'comp-item': {
+			props: ['data'],
 			template: `
 				<div>
 					<p>我是自定义组件</p>
