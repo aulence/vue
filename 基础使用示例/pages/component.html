@@ -36,9 +36,7 @@
 
 			<section id="app-2">
 				<h2 class="section_h2">#app-2：使用公共组件渲染一个列表</h2>
-				<ul>
-					<li-carinfo-item v-for="car in high_carInfo" v-bind:carprop="car" v-bind:key="car.id"></li-carinfo-item>
-                </ul>
+				<li-carinfo-item v-bind:car-list="high_carInfo"></li-carinfo-item>
                 <tips class="comment">该位置出现的组件标签只是为公共组件提供了数据源“high_carInfo”，并且将别名“car”提供给组件内的“props”属性对象内的“carprop”属性。可以这样理解它们的关系：“var carprop = car;”，它们近似一种赋值关系。而“car”是“high_carInfo”内一个个对象的别名。
                     <p>如：“high_carInfo[2]”指的就是对象“{ name: '宾利' }”</p>
                 </tips>
@@ -46,23 +44,18 @@
 
 			<section id="app-3">
 				<h2 class="section_h2">#app-3：使用不同的数据同一个组件渲染列表</h2>
-				<ul>
-					<li-carinfo-item v-for="car in norm_carInfo" v-bind:carprop="car" v-bind:key="car.id"></li-carinfo-item>
-                </ul>
+				<li-carinfo-item v-bind:car-list="norm_carInfo"></li-carinfo-item>
                 <tips class="comment">注意这里已经是另外的VM实例了，但是仍然可以使用注册在全局内的公共组件。</tips>
 			</section>
 
 			<section id="app-4">
 				<h2 class="section_h2">#app-4：使用同一个VM实例内的不同数据同一个组件渲染不同的列表</h2>
-				<ul class="mr-100">
-					<li-carinfo-item v-for="mobike in lowe_mbick" v-bind:carprop="mobike" :key="mobike.id"></li-carinfo-item>
-				</ul>
-				<ul class="mr-100">
-					<li-carinfo-item v-for="mobike in norm_mbick" v-bind:carprop="mobike" :key="mobike.id"></li-carinfo-item>
-				</ul>
-				<ul>
-					<li-carinfo-item v-for="mobike in high_mbick" v-bind:carprop="mobike" :key="mobike.id"></li-carinfo-item>
-                </ul>
+				<!-- 低端摩托车 -->
+				<li-carinfo-item v-bind:car-list="lowe_mbick" class="mr-100"></li-carinfo-item>
+				<!-- 中端摩托车 -->
+				<li-carinfo-item v-bind:car-list="norm_mbick" class="mr-100"></li-carinfo-item>
+				<!-- 高端摩托车 -->
+				<li-carinfo-item v-bind:car-list="high_mbick"></li-carinfo-item>
                 <tips class="comment">以上的实例都主要体现了组件可复用、低耦合的特点。我们暂时可以用JavaScript内的函数来理解组件，就是当传入不同的参数的时候，函数内的语句照常执行，只是由于传入参数不同导致最终运行结果有所不同。
                     <p>最后再次强调，组件化编程思想是Vue的核心编程思想，掌握组件化编程思维对学习这门框架语言十分有益。在Vue进阶课程里我们会更深入地了解组件的编写使用。</p>
                 </tips>

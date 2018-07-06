@@ -6,7 +6,7 @@
 // 关闭 Vue 所有的日志与警告
 Vue.config.silent = true;
 // 关闭 Vue 控制台中输出的“处于开发模式”的信息
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 /* 模块通用对象（全局） */
 window.appname = {
@@ -51,7 +51,7 @@ const app3 = new Vue({
     },
 	// 钩子函数：数据实例创建后执行
 	created: function () {
-        document.getElementsByClassName('content')[0].textContent = `${this.handle}： ${this.name}，${this.prop}。`;
+        document.getElementsByClassName('content')[0].textContent = `${this.handle}：${this.name}，${this.prop}。`;
     }
 }).$mount('#app-3');
 
@@ -71,7 +71,6 @@ const app4 = new Vue({
 	// 钩子函数：VM实例替换视图后执行
 	mounted: function () {
         this.testString += "~~~"
-        console.log(this.$refs.hookElement);
         this.$refs.hookElement.style.cssText = `
             padding: 10px 12px;
             background-image: linear-gradient(179deg, rgb(222, 108, 251), rgb(83, 3, 103));
