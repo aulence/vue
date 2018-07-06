@@ -93,6 +93,8 @@ const app5 = new Vue({
     beforeUpdate: function() {
         if(this.testString.includes('文本内容')) {
             this.run = true;
+        } else {
+            this.run = false;
         }
     },
     // 钩子函数：数据更新后执行
@@ -101,6 +103,8 @@ const app5 = new Vue({
             this.$refs.hookElement.style.fontSize = "32px";
             this.$refs.hookElement.style.color = "#08f";
         } else {
+            this.$refs.hookElement.style.fontSize = "20px";
+            this.$refs.hookElement.style.color = "#333";
             alert('请确保数据中包含“文本内容”字样！');
         }
     }
