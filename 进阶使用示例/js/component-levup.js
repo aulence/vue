@@ -220,7 +220,7 @@ Vue.component('bind-component', {
 const app7 = new Vue({
 	el: '#app-7',
 	data: {
-		parentMsg1: '修改数据也会反应到父组件上',
+		parentMsg1: '修改数据也会实时同步到子组件上',
 		parentMsg2: '但对同一个组件的不同数据是不会产生影响的（可以点击的文本）',
         setNormal: 'color:#2396fd;cursor:pointer;text-decoration:underline;',
         // 等待接收子组件传过来的两个值通过事件进行合并
