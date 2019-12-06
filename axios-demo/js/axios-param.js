@@ -8,7 +8,7 @@ btnLoadData1.onclick = function() {
     const petSelectVal = document.querySelector('#petSelect').value;
     const petInfo = document.querySelector('#petInfo');
     // 允许的参数有："pikachu"、"penhuolong"、"miaowahua"
-    axios.get('http://aulence.com/php/role-info.php?role=' + petSelectVal)
+    axios.get('https://www.aulence.com/php/role-info.php?role=' + petSelectVal)
     .then((resp) => {
         // console.log(resp);
         const data = resp.data;
@@ -54,7 +54,7 @@ btnLoadData2.onclick = function() {
         params.append(x, userSignUpInfo[x]);
     }
     //　使用POST向后台发送带参数请求
-    axios.post('http://aulence.com/php/user-signup.php', params).then((resp) => {
+    axios.post('https://www.aulence.com/php/user-signup.php', params).then((resp) => {
         alert('来自后台返回的结果：\n' + resp.data)
     });
 }
